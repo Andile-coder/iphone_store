@@ -15,48 +15,36 @@
       }
     }
     &_cont {
-      width: 850px;
+      //   width: 850px;
       // height: 433px;
       margin: 49px auto 293px auto;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      column-gap: 94px;
+      grid-template-columns: 4fr 1fr 1fr;
+      column-gap: 60px;
       &_form {
-        width: 380px;
-        &_cards {
+        width: 783px;
+
+        &_deliverys {
           display: flex;
           margin-bottom: 20px;
           justify-content: space-between;
         }
-        &_card_info {
+        &_delivery_info {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 20px;
+          //   row-gap: 20px;
           width: 100%;
         }
-        &_card_extra {
+        &_delivery_extra {
           width: 100%;
           display: flex;
           justify-content: space-between;
         }
-        &_checkbox {
-          display: flex;
-          align-items: center;
-
-          input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          }
-          & > span {
-            color: #000;
-            font-family: Montserrat;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-          }
-        }
       }
       &_pricing_cont {
         width: 281px;
+
         &_summary {
           &_item {
             display: flex;
