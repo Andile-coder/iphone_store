@@ -1,0 +1,21 @@
+.button {
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  display: flex;
+  padding: 8px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#active {
+  background: var(--Red-900, #be0002);
+}
+
+#notActive {
+  border: 0px solid var(--Red-900, #be0002);
+}/*# sourceMappingURL=customButton.module.css.map */

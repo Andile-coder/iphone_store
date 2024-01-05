@@ -1,0 +1,108 @@
+.container {
+  padding: 0px 128px;
+  &_content {
+    &_title {
+      margin-top: 63px;
+      display: flex;
+      justify-content: center;
+      &_text {
+        color: var(--Red-900, #be0002);
+        font-family: Montserrat;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    &_cont {
+      width: 850px;
+      // height: 433px;
+      margin: 49px auto 293px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 94px;
+      &_form {
+        width: 380px;
+
+        &_cards {
+          display: flex;
+          margin-bottom: 20px;
+          justify-content: space-between;
+        }
+        &_card_info {
+          width: 100%;
+        }
+        &_card_extra {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+        &_checkbox {
+          display: flex;
+          align-items: center;
+
+          input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+          }
+          & > span {
+            color: #000;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+      }
+      &_pricing_cont {
+        width: 281px;
+        &_summary {
+          &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            span {
+              color: #000;
+              font-family: Montserrat;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+            }
+
+            &_subtotal {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 48px;
+              span {
+                color: #000;
+                font-family: Montserrat;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+              }
+            }
+          }
+        }
+        .hr {
+          border: 1px solid #be0002;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          margin-top: 16px;
+          margin-bottom: 16px;
+        }
+      }
+      &_divider {
+        height: 100%;
+        background-color: #be0002;
+        width: 1.5px;
+      }
+    }
+  }
+}

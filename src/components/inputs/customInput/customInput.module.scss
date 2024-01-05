@@ -1,0 +1,34 @@
+.container {
+  &_content {
+    &_label {
+      color: var(--Black, #151313);
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    &_input {
+      border: 2px solid rgba(190, 0, 2, 0.5);
+      background: rgba(245, 211, 211, 0.25);
+      display: flex;
+      height: 56px;
+      padding: 8px 12px;
+      align-items: center;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    input:focus {
+      border: 2px solid rgba(190, 0, 2, 0.5);
+      outline: none;
+    }
+    &_input::placeholder {
+      color: #000;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.container {
+  padding: 0px 128px;
+}
+.container_content_title {
+  margin-top: 63px;
+  display: flex;
+  justify-content: center;
+}
+.container_content_title_text {
+  color: var(--Red-900, #be0002);
+  font-family: Montserrat;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.container_content_cont {
+  width: 850px;
+  margin: 49px auto 0px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.container_content_cont_form {
+  width: 380px;
+}
+.container_content_cont_form_cards {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.container_content_cont_form_card_info {
+  width: 100%;
+}
+.container_content_cont_form_card_extra {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.container_content_cont_pricing_cont_summary_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.container_content_cont_pricing_cont_summary_item span {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.container_content_cont_pricing_cont_summary_item_subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.container_content_cont_pricing_cont_summary_item_subtotal span {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.container_content_cont_pricing_cont .hr {
+  border: 1px solid #be0002;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}/*# sourceMappingURL=paymentDetails.module.css.map */

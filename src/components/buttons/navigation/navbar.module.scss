@@ -1,0 +1,67 @@
+@import "../../topography/theme/_colors";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+
+.container {
+  .container_content {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+    column-gap: 40px;
+
+    &_logo {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      &_img {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        color: var(--Red-900, $primary-color);
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    &_pages {
+      display: grid;
+
+      width: 60%;
+      margin: auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: center;
+      column-gap: 26px;
+      text-align: center;
+      &_page {
+        & a {
+          color: var(--Black, #151313);
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          text-decoration: none;
+        }
+        & a:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    &_btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 16px;
+    }
+  }
+  .hr {
+    border: 2px solid $primary-color;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

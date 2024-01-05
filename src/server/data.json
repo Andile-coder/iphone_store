@@ -1,0 +1,52 @@
+[
+  {
+    "name": "iPhone 10 Pro Max",
+    "price": "R1099",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-11-pro-max-64gb-silver_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 10 Pro",
+    "price": "R999",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-11-pro-64gb-silver_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 10",
+    "price": "R899",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-11-64gb-black_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 9",
+    "price": "R799",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-xr-64gb-black_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 8",
+    "price": "R699",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-8-64gb-silver_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 7",
+    "price": "R599",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-7-32gb-black_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 6",
+    "price": "R499",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-6s-32gb-space-grey_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 5",
+    "price": "R399",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-se-32gb-space-grey_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 4",
+    "price": "R299",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-5s-16gb-space-grey_1024x1024.jpg?v=1571084959"
+  },
+  {
+    "name": "iPhone 3",
+    "price": "R199",
+    "image": "https://cdn.shopify.com/s/files/1/2660/5202/products/iphone-5c-16gb-white_1024x1024.jpg?v=1571084959"
+  }
+]

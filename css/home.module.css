@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+.home_main {
+  padding: 0px 128px;
+}
+.home_main .hero {
+  margin-top: 70px;
+}
+.home_main .hero_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 28px;
+       column-gap: 28px;
+  width: 80%;
+  margin: auto;
+}
+.home_main .hero_container_img {
+  width: 483px;
+  height: 400px;
+}
+.home_main .hero_container_img img {
+  width: 100%;
+  height: 100%;
+}
+.home_main .hero_container_desc span:nth-child(1) {
+  color: var(--Black, #151313);
+  font-family: Montserrat;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.home_main .hero_container_desc .phone_name {
+  color: var(--Red-900, #be0002);
+  font-family: Montserrat;
+  font-size: 54px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.home_main .hero_container_desc .sub_title {
+  color: var(--Black, #151313);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.home_main .hero_container_desc ul {
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 10px;
+}
+.home_main .hero_container_desc ul li {
+  color: var(--Black, #151313);
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  margin-top: 10px;
+  font-weight: 400;
+  line-height: normal;
+}
+.home_main .hero_container_desc_btn {
+  margin-top: 40px;
+}
+.home_main .hero hr {
+  border: 1px solid #be0002;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.home_main .height108 {
+  height: 108px;
+}
+.home_main .items_container {
+  width: 1184px;
+}
+.home_main .items_container_content_title {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.home_main .items_container_content_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  -moz-column-gap: 48px;
+       column-gap: 48px;
+  row-gap: 48px;
+  margin-top: 40px;
+}
+.home_main .items_container_content_button {
+  margin-top: 58px;
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=home.module.css.map */

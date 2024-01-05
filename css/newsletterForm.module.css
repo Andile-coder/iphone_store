@@ -1,0 +1,57 @@
+.container_content .inputContainer {
+  margin-top: 16px;
+  display: flex;
+  height: 52px;
+  padding: 8px 8px 8px 12px;
+  width: 314px;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #fffdfd;
+  background: #fffdfd;
+}
+.container_content .inputContainer input {
+  overflow: none;
+  border: none;
+}
+.container_content .inputContainer input::-moz-placeholder {
+  color: var(--Red-90, rgba(190, 0, 2, 0.9));
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.container_content .inputContainer input::placeholder {
+  color: var(--Red-90, rgba(190, 0, 2, 0.9));
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.container_content .inputContainer input:focus {
+  outline: none;
+  border: none;
+}
+.container_content button {
+  margin-top: 16px;
+  background: none;
+  outline: none;
+  border: none;
+  width: 90%;
+  max-width: auto;
+  color: var(--Red-900, #be0002);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 52px;
+  padding: 8px 8px 8px 12px;
+  align-items: center;
+  gap: 8px;
+  width: 334px;
+  cursor: pointer;
+  border: 1px solid #fffdfd;
+  background: #fffdfd;
+}/*# sourceMappingURL=newsletterForm.module.css.map */

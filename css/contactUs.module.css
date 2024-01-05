@@ -1,0 +1,23 @@
+.container {
+  padding: 0px 128px;
+}
+.container_content_title {
+  margin-top: 63px;
+  display: flex;
+  justify-content: center;
+}
+.container_content_title_text {
+  color: var(--Red-900, #be0002);
+  font-family: Montserrat;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.container_content_form {
+  margin-bottom: 96px;
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}/*# sourceMappingURL=contactUs.module.css.map */
