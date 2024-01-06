@@ -10,6 +10,7 @@
     &_container {
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       column-gap: 28px;
       width: 80%;
       margin: auto;
@@ -79,8 +80,7 @@
     height: 108px;
   }
   .items_container {
-    width: 1184px;
-
+    // width: 100%;
     &_content_title {
       color: #000;
       font-family: Montserrat;
@@ -92,7 +92,8 @@
     &_content_list {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-      column-gap: 48px;
+      column-gap: 25px;
+      width: 100%;
       row-gap: 48px;
       margin-top: 40px;
     }

@@ -15,15 +15,12 @@
       }
     }
     &_cont {
-      //   width: 850px;
-      // height: 433px;
       margin: 49px auto 293px auto;
       display: grid;
-      grid-template-columns: 4fr 1fr 1fr;
-      column-gap: 60px;
+      grid-template-columns: 0.95fr 0.01fr 0.05fr;
+      column-gap: 3rem;
       &_form {
-        width: 783px;
-
+        // width: 783px;
         &_deliverys {
           display: flex;
           margin-bottom: 20px;
@@ -33,18 +30,14 @@
           display: grid;
           grid-template-columns: 1fr 1fr;
           column-gap: 20px;
-          //   row-gap: 20px;
-          width: 100%;
         }
         &_delivery_extra {
-          width: 100%;
           display: flex;
           justify-content: space-between;
         }
       }
       &_pricing_cont {
         width: 281px;
-
         &_summary {
           &_item {
             display: flex;
@@ -59,7 +52,6 @@
               font-weight: 500;
               line-height: normal;
             }
-
             &_subtotal {
               display: flex;
               justify-content: space-between;

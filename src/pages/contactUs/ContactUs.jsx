@@ -17,7 +17,6 @@ const ContactUs = () => {
           </div>
           <div className={styles.container_content_form}>
             <ContactUsForm />
-
             <Couch />
           </div>
         </div>

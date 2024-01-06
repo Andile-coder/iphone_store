@@ -4,7 +4,7 @@ import NavBar from "../../components/buttons/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
 import { useNavigate } from "react-router-dom";
-// import { CiCreditdelivery1 } from "react-icons/ci";
+
 import CustomInput from "../../components/inputs/customInput/CustomInput";
 const DeliveryDetails = () => {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ const DeliveryDetails = () => {
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
                       placeholder="Beautiful Gardens"
-                      label="Complex/Building Name (optional)"
+                      label="Complex/Building Name "
                       height="30px"
                       width="92.5%"
                     />
