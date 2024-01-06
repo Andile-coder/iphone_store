@@ -1,0 +1,21 @@
+.container {
+  padding: 0px 128px;
+  &_content {
+    &_title {
+      margin-top: 63px;
+      display: flex;
+      justify-content: center;
+      &_text {
+        color: var(--Red-900, #be0002);
+        font-family: Montserrat;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    &_table {
+      margin-top: 63px;
+    }
+  }
+}

@@ -7,13 +7,16 @@ import ContactUs from "./pages/contactUs/ContactUs.jsx";
 import PaymentDeatils from "./pages/paymentDetails/PaymentDetails.jsx";
 import DeliveryDetails from "./pages/deliveryDetails/DeliveryDetails.jsx";
 import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
+import Cart from "./pages/cart/Cart.jsx";
+import OrderDetails from "./pages/orderDetails/OrderDetails.jsx";
+import OrderHistory from "./pages/orderHistory/OrderHistory.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <ProductDetails />,
+      element: <OrderHistory />,
       loader: () => Promise.resolve({}),
     },
     {

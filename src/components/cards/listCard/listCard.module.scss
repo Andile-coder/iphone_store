@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+.container {
+  &_content {
+    display: grid;
+    grid-template-columns: 0.6fr 0.3fr;
+    &_left {
+      display: flex;
+      &_delete {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+      }
+      &_img {
+        width: 53px;
+        height: 64px;
+        margin-right: 12px;
+        & > img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &_info {
+        &_title {
+          & > span {
+            color: var(--Red-900, #be0002);
+            font-family: Montserrat;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+        &_space {
+          margin-top: 12px;
+          color: var(--Black, #151313);
+          font-family: Montserrat;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+    }
+    &_right {
+      display: flex;
+      justify-content: space-between;
+
+      align-items: center;
+      &_quantity {
+        display: flex;
+        align-items: center;
+        & > span {
+          margin-left: 28px;
+          margin-right: 28px;
+          color: var(--Red-900, #be0002);
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+      }
+      &_price {
+        & > span {
+          color: #000;
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+    }
+  }
+  & > hr {
+    border: 1px solid #be0002;
+    width: 70%;
+    margin-left: 100px;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

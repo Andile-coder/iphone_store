@@ -23,13 +23,24 @@ const CustomButton: React.FC<Props> = (props) => {
         height: props.height,
 
         cursor: "pointer",
-        color: props.className != "active" ? "var(--Red-900, #BE0002)" : "",
+        color:
+          props.color === "primary"
+            ? "#fffff"
+            : props.color === "secondary"
+            ? "var(--Red-900, #BE0002)"
+            : props.color === "tertiary"
+            ? "var(--Red-900, #BE0002)"
+            : "#fffff",
         border:
-          props.className != "active"
-            ? "2px solid var(--Red-900, #BE0002)"
-            : "",
+          props.color != "primary" ? "2px solid var(--Red-900, #BE0002)" : "",
         backgroundColor:
-          props.className === "active" ? "var(--Red-900, #BE0002)" : "#fff",
+          props.color === "primary"
+            ? "var(--Red-900, #BE0002)"
+            : props.color === "secondary"
+            ? "#fff"
+            : props.color === "tertiary"
+            ? "var(--Red-900, #F9B3B4)"
+            : "var(--Red-900, #BE0002)",
       }}
     >
       <span

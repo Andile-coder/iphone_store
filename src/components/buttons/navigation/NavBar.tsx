@@ -37,8 +37,8 @@ const NavBar: React.FC<Props> = (props) => {
           ))}
         </div>
         <div className={styles.container_content_btns}>
-          <CustomButton text="Cart" height="64px" className="active" />
-          <CustomButton text="Login" height="64px" className="not_active" />
+          <CustomButton text="Cart" height="64px" />
+          <CustomButton text="Login" height="64px" color="secondary" />
         </div>
       </nav>
       <hr className={styles.hr} />

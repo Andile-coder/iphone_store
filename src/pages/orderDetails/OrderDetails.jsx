@@ -1,12 +1,11 @@
 import React from "react";
-import styles from "./cart.module.scss";
-import CustomInput from "../../components/inputs/customInput/CustomInput";
-import CustomButton from "../../components/buttons/customButton/CustomButton";
+import styles from "./orderDetails.module.scss";
 import NavBar from "../../components/buttons/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
+import CustomButton from "../../components/buttons/customButton/CustomButton";
 import ListCard from "../../components/cards/listCard/ListCard";
 import Images from "../../components/images/Images";
-const Cart = () => {
+const OrderDetails = () => {
   const items = [
     {
       name: "iPhone 14 Pro Max",
@@ -44,14 +43,15 @@ const Cart = () => {
       image: Images[0],
     },
   ];
-
   return (
     <div>
       <div className={styles.container}>
         <div className={styles.container_content}>
           <NavBar />
           <div className={styles.container_content_title}>
-            <span className={styles.container_content_title_text}>Cart</span>
+            <span className={styles.container_content_title_text}>
+              Order ID: 12345678910
+            </span>
           </div>
           <div className={styles.container_content_cont}>
             <div className={styles.container_content_cont_list}>
@@ -65,8 +65,8 @@ const Cart = () => {
                       name={item.name}
                       price={item.price}
                       img={item.image}
+                      hasIcon={false}
                       space={item.space}
-                      hasIcon={true}
                       quantity={item.quantity}
                     />
                   </div>
@@ -83,7 +83,7 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default OrderDetails;
 const PricingContainer = () => {
   return (
     <div className={styles.container_content_cont_pricing}>
@@ -118,10 +118,11 @@ const PricingContainer = () => {
           <span>R68964</span>
         </div>
         <CustomButton
-          text="Checkout"
+          text="Not Delivered"
           height="56px"
           className="active"
           width="100%"
+          color="tertiary"
         />
       </div>
     </div>
