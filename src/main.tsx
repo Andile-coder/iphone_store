@@ -6,13 +6,14 @@ import Shop from "./pages/shop/Shop.jsx";
 import ContactUs from "./pages/contactUs/ContactUs.jsx";
 import PaymentDeatils from "./pages/paymentDetails/PaymentDetails.jsx";
 import DeliveryDetails from "./pages/deliveryDetails/DeliveryDetails.jsx";
+import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <DeliveryDetails />,
+      element: <ProductDetails />,
       loader: () => Promise.resolve({}),
     },
     {
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
       loader: () => Promise.resolve({}),
     },
   ],
-  { basename: "/iselliphones" }
+  { basename: "/" }
 );
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <RouterProvider router={router} />

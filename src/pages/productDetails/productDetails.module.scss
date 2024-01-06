@@ -1,0 +1,106 @@
+.container {
+  padding: 0px 128px;
+  &_content {
+    margin-bottom: 293px;
+
+    &_cont {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 61px;
+      width: 80%;
+      &_img {
+        width: 346px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        &_container {
+          width: 278px;
+
+          & > img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &_list {
+          margin-top: 64px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          column-gap: 18px;
+          width: 100%;
+          &_item {
+            display: flex;
+            justify-content: center;
+            padding: 12px;
+            border: 2px solid var(--Red-900, #be0002);
+          }
+        }
+      }
+      &_divider {
+        height: 100%;
+        background-color: #be0002;
+        width: 4px;
+      }
+      &_info {
+        width: 454px;
+        &_title {
+          & > span {
+            color: var(--Red-900, #be0002);
+            font-family: Montserrat;
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+        &_cont {
+          margin-top: 48px;
+          &_summary {
+            &_item {
+              display: flex;
+              align-items: center;
+              margin-bottom: 16px;
+              span {
+                color: var(--Black, #151313);
+                font-family: Montserrat;
+                font-size: 16px;
+                font-style: normal;
+                margin-left: 12px;
+                font-weight: 400;
+                line-height: normal;
+              }
+            }
+            &_item_blocks {
+              display: flex;
+              margin-top: 28px;
+              margin-bottom: 24px;
+              & > .blockContainer {
+                width: 44px;
+                height: 44px;
+                border: 2px solid var(--Red-900, #be0002);
+                margin-right: 18px;
+                padding: 8px;
+                .blockContainer_content {
+                  height: 100%;
+                  width: 100%;
+                }
+              }
+            }
+            &_item_subtotal {
+              margin-bottom: 64px;
+              span {
+                color: var(--Black, #151313);
+                font-family: Montserrat;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

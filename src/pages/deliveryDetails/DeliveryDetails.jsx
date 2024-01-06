@@ -24,74 +24,51 @@ const DeliveryDetails = () => {
                 >
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
+                      placeholder="1 Example Street"
+                      label="Street Address"
                       height="30px"
                       width="92.5%"
                     />
                   </div>
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
+                      placeholder="Beautiful Gardens"
+                      label="Complex/Building Name (optional)"
                       height="30px"
                       width="92.5%"
                     />
                   </div>
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
+                      placeholder="Camps Bay"
+                      label="Suburb"
                       height="30px"
                       width="92.5%"
                     />
                   </div>{" "}
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
+                      placeholder="Cape Town"
+                      label="City/Town"
                       height="30px"
                       width="92.5%"
                     />
                   </div>{" "}
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
+                      placeholder="Western Cape"
+                      label="Province"
                       height="30px"
                       width="92.5%"
                     />
                   </div>
                   <div style={{ marginBottom: "20px" }}>
                     <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
+                      placeholder="8005"
+                      label="Postal Code"
                       height="30px"
                       width="92.5%"
-                    />
-                  </div>
-                  <div style={{ marginBottom: "20px" }}>
-                    <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
-                      height="30px"
-                      width="92.5%"
-                    />
-                  </div>
-                  <div style={{ marginBottom: "20px" }}>
-                    <CustomInput
-                      placeholder="John Doe"
-                      label="delivery Holder"
-                      height="30px"
-                      width="92.5%"
-                    />
-                  </div>
-                  <div style={{ marginBottom: "20px" }}>
-                    <CustomInput
-                      placeholder="12345678899"
-                      label="delivery Number"
-                      height="30px"
-                      width="92.5%"
+                      type="number"
                     />
                   </div>
                 </div>
