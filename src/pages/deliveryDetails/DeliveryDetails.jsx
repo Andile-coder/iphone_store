@@ -3,9 +3,14 @@ import styles from "./deliveryDetails.module.scss";
 import NavBar from "../../components/buttons/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
+import { useNavigate } from "react-router-dom";
 // import { CiCreditdelivery1 } from "react-icons/ci";
 import CustomInput from "../../components/inputs/customInput/CustomInput";
 const DeliveryDetails = () => {
+  const navigate = useNavigate();
+  const goToPayment = (id) => {
+    navigate(`/checkout/payment/${id}`);
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -75,7 +80,7 @@ const DeliveryDetails = () => {
               </form>
             </div>
             <div className={styles.container_content_cont_divider}></div>
-            <PricingContainer />
+            <PricingContainer onClick={() => goToPayment("123")} />
           </div>
         </div>
       </div>
@@ -85,7 +90,7 @@ const DeliveryDetails = () => {
 };
 
 export default DeliveryDetails;
-const PricingContainer = () => {
+const PricingContainer = ({ onClick }) => {
   return (
     <div className={styles.container_content_cont_pricing}>
       <div className={styles.container_content_cont_pricing_cont}>
@@ -121,7 +126,7 @@ const PricingContainer = () => {
         <CustomButton
           text="Payment"
           height="56px"
-          className="active"
+          onClick={onClick}
           width="100%"
         />
       </div>

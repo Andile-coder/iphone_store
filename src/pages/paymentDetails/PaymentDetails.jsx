@@ -6,7 +6,12 @@ import CustomButton from "../../components/buttons/customButton/CustomButton";
 
 import { CiCreditCard1 } from "react-icons/ci";
 import CustomInput from "../../components/inputs/customInput/CustomInput";
+import { useNavigate } from "react-router-dom";
 const PaymentDetails = () => {
+  const navigate = useNavigate();
+  const goToOrder = (id) => {
+    navigate(`/order/${id}`);
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -27,6 +32,7 @@ const PaymentDetails = () => {
                     <CustomButton
                       text="Credit Card"
                       height="56px"
+                      color="secondary"
                       icon={<CiCreditCard1 size={24} />}
                     />
                   </div>
@@ -89,7 +95,7 @@ const PaymentDetails = () => {
               </form>
             </div>
             <div className={styles.container_content_cont_divider}></div>
-            <PricingContainer />
+            <PricingContainer onClick={() => goToOrder("123")} />
           </div>
         </div>
       </div>
@@ -100,7 +106,7 @@ const PaymentDetails = () => {
 
 export default PaymentDetails;
 
-const PricingContainer = () => {
+const PricingContainer = ({ onClick }) => {
   return (
     <div className={styles.container_content_cont_pricing}>
       <div className={styles.container_content_cont_pricing_cont}>
@@ -136,8 +142,9 @@ const PricingContainer = () => {
         <CustomButton
           text="Pay Now"
           height="56px"
-          className="active"
+          color="primary"
           width="100%"
+          onClick={onClick}
         />
       </div>
     </div>

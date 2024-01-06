@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./navbar.module.scss";
 import CustomButton from "../customButton/CustomButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 interface Props {}
 
 const NavBar: React.FC<Props> = (props) => {
@@ -11,11 +11,14 @@ const NavBar: React.FC<Props> = (props) => {
     { name: "Contact", path: "/contact" },
   ];
   const [active, setActive] = React.useState(0);
+  const navigate = useNavigate();
 
   const handleActive = (index: number) => {
     console.log(index);
-
     setActive(index);
+  };
+  const goToCart = () => {
+    navigate("/cart");
   };
   return (
     <div className={styles.container}>
@@ -37,7 +40,7 @@ const NavBar: React.FC<Props> = (props) => {
           ))}
         </div>
         <div className={styles.container_content_btns}>
-          <CustomButton text="Cart" height="64px" />
+          <CustomButton text="Cart" height="64px" onClick={goToCart} />
           <CustomButton text="Login" height="64px" color="secondary" />
         </div>
       </nav>

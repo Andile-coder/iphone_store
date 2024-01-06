@@ -18,6 +18,7 @@ const CustomButton: React.FC<Props> = (props) => {
   return (
     <button
       className={styles.button}
+      onClick={props.onClick}
       style={{
         width: props.width,
         height: props.height,

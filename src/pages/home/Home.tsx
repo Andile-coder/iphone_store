@@ -19,60 +19,70 @@ const Home: React.FC<Props> = (props) => {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_promax_deep_purple,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_plus_red1,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_promax_gold,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_plus_purple1,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_plus_red1,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_promax_spaceblack,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_plus_red1,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_promax_deep_purple,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_promax_gold,
     },
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
+      id: 1,
       image: iphone14_promax_spaceblack,
     },
   ];
@@ -102,7 +112,7 @@ const Home: React.FC<Props> = (props) => {
                 in your hands in a click of a button.
               </span>
               <div className={styles.hero_container_desc_btn}>
-                <CustomButton text="Buy Now" height="64px" className="active" />
+                <CustomButton text="Buy Now" height="64px" />
               </div>
             </div>
           </div>
@@ -123,6 +133,7 @@ const Home: React.FC<Props> = (props) => {
                     name={item.name}
                     image={item.image}
                     space={item.space}
+                    id={item.id}
                   />
                 ))}
               </div>
@@ -146,6 +157,7 @@ const Home: React.FC<Props> = (props) => {
                     name={item.name}
                     image={item.image}
                     space={item.space}
+                    id={item.id}
                   />
                 ))}
               </div>

@@ -16,7 +16,7 @@ const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <OrderHistory />,
+      element: <Home />,
       loader: () => Promise.resolve({}),
     },
     {
@@ -27,6 +27,36 @@ const router = createBrowserRouter(
     {
       path: "/contact",
       element: <ContactUs />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/checkout/payment/:id",
+      element: <PaymentDeatils />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/checkout/delivery/:id",
+      element: <DeliveryDetails />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/product/:id",
+      element: <ProductDetails />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/order/:id",
+      element: <OrderDetails />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/history/",
+      element: <OrderHistory />,
       loader: () => Promise.resolve({}),
     },
   ],

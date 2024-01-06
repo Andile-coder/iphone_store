@@ -6,7 +6,13 @@ import NavBar from "../../components/buttons/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import ListCard from "../../components/cards/listCard/ListCard";
 import Images from "../../components/images/Images";
+import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
+  const navigate = useNavigate();
+  const goToCheckout = (id) => {
+    navigate(`/checkout/delivery/${id}`);
+  };
   const items = [
     {
       name: "iPhone 14 Pro Max",
@@ -74,7 +80,7 @@ const Cart = () => {
               </div>
             </div>
             <div className={styles.container_content_cont_divider}></div>
-            <PricingContainer />
+            <PricingContainer onClick={() => goToCheckout("123")} />
           </div>
         </div>
       </div>
@@ -84,7 +90,7 @@ const Cart = () => {
 };
 
 export default Cart;
-const PricingContainer = () => {
+const PricingContainer = ({ onClick }) => {
   return (
     <div className={styles.container_content_cont_pricing}>
       <div className={styles.container_content_cont_pricing_cont}>
@@ -122,6 +128,7 @@ const PricingContainer = () => {
           height="56px"
           className="active"
           width="100%"
+          onClick={onClick}
         />
       </div>
     </div>

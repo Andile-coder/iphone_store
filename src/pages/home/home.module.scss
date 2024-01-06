@@ -22,7 +22,7 @@
         }
       }
       &_desc {
-        & span:nth-child(1) {
+        & > span:first-child {
           color: var(--Black, #151313);
           font-family: Montserrat;
           font-size: 19px;

@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./phoneCard.module.scss";
 import CustomButton from "../../buttons/customButton/CustomButton";
-const PhoneCard = ({ title, price, image, link, space, name }) => {
+import { useNavigate } from "react-router-dom";
+const PhoneCard = ({ title, price, image, link, space, name, id }) => {
+  const navigate = useNavigate();
+  const goToProduct = (id) => {
+    navigate(`/product/${id}`);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.container_content}>
@@ -16,7 +21,7 @@ const PhoneCard = ({ title, price, image, link, space, name }) => {
             text="View Deal"
             height="36px"
             width="100%"
-            className="active"
+            onClick={() => goToProduct(id)}
           />
         </div>
       </div>
