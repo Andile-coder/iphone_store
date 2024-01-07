@@ -3,6 +3,8 @@
     &_form_cont {
       margin: auto;
       &_title {
+        display: flex;
+        justify-content: center;
         & > span {
           color: var(--Black, #151313);
           font-family: Montserrat;
@@ -61,6 +63,28 @@
       &_password {
         width: 100%;
         margin-bottom: 24px;
+      }
+      &_extra {
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+        &_text {
+          color: var(--Black, #151313);
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+        &_link {
+          color: var(--Red-900, #be0002);
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          cursor: pointer;
+        }
       }
     }
   }

@@ -10,7 +10,7 @@ const RegisterForm = () => {
       <div className={styles.container_content}>
         <div className={styles.container_content_form_cont}>
           <div className={styles.container_content_form_cont_title}>
-            <span>Sign up</span>
+            <span>Sign Up</span>
           </div>
           <div className={styles.container_content_form_cont_social_logins}>
             <CustomButton
@@ -66,6 +66,14 @@ const RegisterForm = () => {
               />
             </div>
             <CustomButton text="Sig up" />
+            <div className={styles.container_content_form_cont_extra}>
+              <span className={styles.container_content_form_cont_extra_text}>
+                Already have an account?
+              </span>
+              <span className={styles.container_content_form_cont_extra_link}>
+                Log in
+              </span>
+            </div>
           </form>
         </div>
       </div>

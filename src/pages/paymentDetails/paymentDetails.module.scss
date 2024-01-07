@@ -23,37 +23,6 @@
       column-gap: 94px;
       &_form {
         width: 380px;
-        &_cards {
-          display: flex;
-          margin-bottom: 20px;
-          justify-content: space-between;
-        }
-        &_card_info {
-          width: 100%;
-        }
-        &_card_extra {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-        }
-        &_checkbox {
-          display: flex;
-          align-items: center;
-
-          input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          }
-          & > span {
-            color: #000;
-            font-family: Montserrat;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-          }
-        }
       }
       &_pricing_cont {
         width: 281px;
