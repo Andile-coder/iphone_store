@@ -12,6 +12,7 @@ interface Props {
   loading?: boolean;
   width?: string;
   height?: string;
+  iconPosition?: "left" | "right";
 }
 
 const CustomButton: React.FC<Props> = (props) => {
@@ -44,15 +45,18 @@ const CustomButton: React.FC<Props> = (props) => {
             : "var(--Red-900, #BE0002)",
       }}
     >
+      {props.icon && props.iconPosition === "left" && props.icon}
       <span
         style={{
           display: props.iconOnly ? "none" : "block",
-          marginRight: props.icon ? "10px" : "",
+          marginRight:
+            props.icon && props.iconPosition === "right" ? "10px" : "",
+          marginLeft: props.icon && props.iconPosition === "left" ? "10px" : "",
         }}
       >
         {props.text}
       </span>
-      {props.icon}
+      {props.icon && props.iconPosition === "right" && props.icon}
     </button>
   );
 };

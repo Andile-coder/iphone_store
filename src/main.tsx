@@ -10,6 +10,8 @@ import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 import OrderDetails from "./pages/orderDetails/OrderDetails.jsx";
 import OrderHistory from "./pages/orderHistory/OrderHistory.jsx";
+import SignIn from "./pages/auth/signin/SignIn.jsx";
+import SignUp from "./pages/auth/signup/SignUp.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter(
@@ -17,6 +19,16 @@ const router = createBrowserRouter(
     {
       path: "/",
       element: <Home />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/signin",
+      element: <SignIn />,
+      loader: () => Promise.resolve({}),
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
       loader: () => Promise.resolve({}),
     },
     {

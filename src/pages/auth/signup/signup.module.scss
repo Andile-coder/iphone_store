@@ -1,0 +1,8 @@
+.container {
+  &_content {
+    width: 582px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+  }
+}
