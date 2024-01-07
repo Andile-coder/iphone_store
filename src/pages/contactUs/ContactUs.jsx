@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./contactUs.module.scss";
-import NavBar from "../../components/buttons/navigation/NavBar";
+import NavBar from "../../components/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import ContactUsForm from "../../components/forms/contactUs/ContactUsForm";
 import Couch from "../../components/svg/couch/Couch";

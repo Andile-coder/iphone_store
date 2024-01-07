@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./orderHistory.module.scss";
-import NavBar from "../../components/buttons/navigation/NavBar";
+import NavBar from "../../components/navigation/NavBar";
 import OrderHistoryTable from "../../components/tables/orderHistoryTable/orderHistoryTable";
 const OrderHistory = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./home.module.scss";
-import NavBar from "../../components/buttons/navigation/NavBar";
+import NavBar from "../../components/navigation/NavBar";
 import HeroImg from "../../assets/hero1.png";
 import iphone14_promax_deep_purple from "../../assets/phones/iphone14_promax_deep_purple1 1.png";
 import iphone14_promax_gold from "../../assets/phones/iphone14_promax_gold1 1.png";
@@ -138,7 +138,11 @@ const Home: React.FC<Props> = (props) => {
                 ))}
               </div>
               <div className={styles.items_container_content_button}>
-                <CustomButton text="View More" height="64px" />
+                <CustomButton
+                  text="View More"
+                  height="64px"
+                  color="secondary"
+                />
               </div>
             </div>
           </div>
@@ -162,7 +166,11 @@ const Home: React.FC<Props> = (props) => {
                 ))}
               </div>
               <div className={styles.items_container_content_button}>
-                <CustomButton text="View More" height="64px" />
+                <CustomButton
+                  text="View More"
+                  height="64px"
+                  color="secondary"
+                />
               </div>
             </div>
           </div>

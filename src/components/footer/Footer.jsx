@@ -1,19 +1,18 @@
 import React from "react";
 import styles from "./footer.module.scss";
-import logo from "../../assets/iphone_logo.png";
 import { MdOutlineEmail, MdOutlinePhoneEnabled } from "react-icons/md";
 import { FaFacebook } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import NeweletterForm from "../forms/newsletterForm/NeweletterForm";
-
+import logo from "../../assets/ace_iphone2.png";
 const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container_content}>
         <div className={styles.container_content_logo}>
-          <div className={styles.logo_cont}>
-            <span>Logo</span>
+          <div className={styles.container_content_logo_cont}>
+            <img src={logo} alt="" />
           </div>
           <div className={styles.items}>
             <div className={styles.items_item}>

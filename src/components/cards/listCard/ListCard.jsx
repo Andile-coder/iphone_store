@@ -7,9 +7,11 @@ const ListCard = ({ img, quantity, price, name, space, color, hasIcon }) => {
     <div className={styles.container}>
       <div className={styles.container_content}>
         <div className={styles.container_content_left}>
-          <div className={styles.container_content_left_delete}>
-            <MdCancel color="#be0002" />
-          </div>
+          {hasIcon && (
+            <div className={styles.container_content_left_delete}>
+              <MdCancel color="#be0002" cursor="pointer" />
+            </div>
+          )}
           <div className={styles.container_content_left_img}>
             <img src={img} alt="" />
           </div>

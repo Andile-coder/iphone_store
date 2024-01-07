@@ -6,6 +6,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 28px;
+    &_logo {
+      &_cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 130px;
+        & > img {
+          width: 50%;
+          height: 100%;
+        }
+      }
+    }
 
     .items {
       &_item {

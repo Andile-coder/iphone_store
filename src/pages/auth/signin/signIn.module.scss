@@ -1,4 +1,9 @@
 .container {
+  padding: 0px 128px;
   &_content {
+    width: 582px;
+    display: flex;
+    margin: 100px auto;
+    flex-direction: column;
   }
 }

@@ -4,6 +4,7 @@ import CustomInput from "../../inputs/customInput/CustomInput";
 import CustomButton from "../../buttons/customButton/CustomButton";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 const RegisterForm = () => {
   return (
     <div className={styles.container}>
@@ -65,14 +66,17 @@ const RegisterForm = () => {
                 width="95.5%"
               />
             </div>
-            <CustomButton text="Sig up" />
+            <CustomButton text="Sign in" />
             <div className={styles.container_content_form_cont_extra}>
               <span className={styles.container_content_form_cont_extra_text}>
                 Already have an account?
               </span>
-              <span className={styles.container_content_form_cont_extra_link}>
+              <Link
+                to="/signin"
+                className={styles.container_content_form_cont_extra_link}
+              >
                 Log in
-              </span>
+              </Link>
             </div>
           </form>
         </div>

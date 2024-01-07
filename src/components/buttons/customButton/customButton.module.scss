@@ -10,9 +10,13 @@
   border: none;
   display: flex;
   padding: 8px 20px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
+
 #active {
   background: var(--Red-900, $primary-color);
 }

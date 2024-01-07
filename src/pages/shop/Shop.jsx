@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./shop.module.scss";
-import NavBar from "../../components/buttons/navigation/NavBar"; //fix file structure
+import NavBar from "../../components/navigation/NavBar";
 import iphone14_promax_deep_purple from "../../assets/phones/iphone14_promax_deep_purple1 1.png";
 import iphone14_promax_gold from "../../assets/phones/iphone14_promax_gold1 1.png";
 import iphone14_promax_spaceblack from "../../assets/phones/iphone14_promax_spaceblack1 1.png";

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./paymentDetails.module.scss";
-import NavBar from "../../components/buttons/navigation/NavBar";
+import NavBar from "../../components/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
 

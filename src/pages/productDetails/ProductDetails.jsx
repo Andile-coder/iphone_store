@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./productDetails.module.scss";
-import NavBar from "../../components/buttons/navigation/NavBar";
+import NavBar from "../../components/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import IphoneBack from "../../assets/phones/iphone14_promax_deep_purple3 1.png";
 import IphoneFront from "../../assets/phones/iphone14_promax_deep_purple2 1.png";
