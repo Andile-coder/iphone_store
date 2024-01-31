@@ -1,0 +1,16 @@
+.container_content_cont_form {
+  &_deliverys {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+  &_delivery_info {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // column-gap: 20px;
+  }
+  &_delivery_extra {
+    display: flex;
+    justify-content: space-between;
+  }
+}

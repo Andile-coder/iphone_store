@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+
+.container {
+  padding: 0px 128px;
+  &_content {
+    &_cont {
+      display: flex;
+      &_nav {
+        background-color: #fbdddd;
+        height: 100vh;
+        width: 281px;
+
+        &_user {
+          margin-top: 96px;
+          display: flex;
+          align-items: center;
+          flex-flow: column;
+          &_img {
+            border-radius: 50px;
+            width: 88px;
+            height: 88px;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+          &_text {
+            margin-top: 32px;
+            span {
+              color: #000;
+              font-family: Montserrat;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+            h2 {
+              color: #000;
+              font-family: Montserrat;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+          }
+        }
+        &_items {
+          margin-top: 40px;
+        }
+      }
+      &_details {
+        margin-left: 46px;
+        margin-top: 80px;
+        width: 481px;
+      }
+    }
+  }
+}
