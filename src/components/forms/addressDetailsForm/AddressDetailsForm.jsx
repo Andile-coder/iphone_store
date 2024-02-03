@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./addressDetailsForm.module.scss";
 import CustomInput from "../../inputs/customInput/CustomInput";
 import CustomButton from "../../buttons/customButton/CustomButton";
-const AddressDetailsForm = () => {
+const AddressDetailsForm = ({ visibleBtn }) => {
   return (
     <div className={styles.container_content_cont_form}>
       <form action="">
@@ -54,6 +54,23 @@ const AddressDetailsForm = () => {
               height="30px"
               width="92.5%"
               type="number"
+            />
+          </div>
+          <div
+            style={{
+              marginBottom: "20px",
+              display: visibleBtn ? "block" : "none",
+            }}
+          >
+            <CustomButton
+              text="Save"
+              height="40px"
+              width="98.5%"
+              fontSize="1.2rem"
+              fontWeight="600"
+              borderRadius="5px"
+              bgColor="#FF6F61"
+              textColor="#fff"
             />
           </div>
         </div>

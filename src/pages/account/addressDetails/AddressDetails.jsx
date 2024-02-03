@@ -5,7 +5,7 @@ const AddressDetails = () => {
   return (
     <div>
       <h1>Address details</h1>
-      <AddressDetailsForm />
+      <AddressDetailsForm visibleBtn={true} />
     </div>
   );
 };

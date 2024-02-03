@@ -4,6 +4,7 @@ import NavBar from "../../components/navigation/NavBar";
 import user from "../../assets/user.jpg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import AccountNavCard from "../../components/cards/accountNavCard/AccountNavCard";
+import Footer from "./../../components/footer/Footer";
 const Account = () => {
   const [pages, setPages] = useState([
     {
@@ -77,6 +78,7 @@ const Account = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
