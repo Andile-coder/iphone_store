@@ -1,4 +1,5 @@
 @import "../topography/theme/colors";
+@import "../topography/screens/screens";
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
 
 .container {
@@ -31,5 +32,18 @@
       line-height: normal;
       padding-left: 10px;
     }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    height: auto !important;
+  }
+  .container_content {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  .itemBlock_container {
+    height: auto !important;
+    margin-bottom: 10px;
   }
 }
