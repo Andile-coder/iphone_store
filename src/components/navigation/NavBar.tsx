@@ -3,6 +3,7 @@ import styles from "./navbar.module.scss";
 import CustomButton from "../buttons/customButton/CustomButton";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/ace_iphone2.png";
+import { CiMenuBurger } from "react-icons/ci";
 import logoName from "../../assets/ace_iphone_name2.png";
 interface Props {}
 
@@ -60,6 +61,9 @@ const NavBar: React.FC<Props> = (props) => {
             color="secondary"
             onClick={goToLogin}
           />
+        </div>
+        <div className={styles.container_content_burger}>
+          <CiMenuBurger size={40} />
         </div>
       </nav>
       <hr className={styles.hr} />

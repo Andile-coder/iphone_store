@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./home.module.scss";
 import NavBar from "../../components/navigation/NavBar";
 import HeroImg from "../../assets/hero1.png";
@@ -14,6 +15,7 @@ import Footer from "../../components/footer/Footer";
 interface Props {}
 
 const Home: React.FC<Props> = (props) => {
+  const navigate = useNavigate();
   const items = [
     {
       name: "iPhone 14 Pro Max",
@@ -89,7 +91,9 @@ const Home: React.FC<Props> = (props) => {
   return (
     <div>
       <div className={styles.home_main}>
-        <NavBar />
+        <div style={{ width: "100vw" }}>
+          <NavBar />
+        </div>
         <section className={styles.hero}>
           <div className={styles.hero_container}>
             <div className={styles.hero_container_img}>
@@ -142,6 +146,7 @@ const Home: React.FC<Props> = (props) => {
                   text="View More"
                   height="64px"
                   color="secondary"
+                  onClick={() => navigate("/shop")}
                 />
               </div>
             </div>
