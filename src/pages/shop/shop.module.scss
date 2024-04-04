@@ -63,6 +63,7 @@
       &_dropdown_container {
         display: flex;
         align-items: center;
+        font-family: Montserrat;
         & > span {
           color: var(--Red-900, #be0002);
           font-family: Montserrat;
@@ -115,5 +116,38 @@
       column-gap: 25px;
       row-gap: 48px;
     }
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  width: 300px;
+  margin: auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_active {
+    background-color: #be0002;
+    color: #fffdfd;
+    border-radius: 5px;
+  }
+  &_link {
+    display: flex;
+    margin: 20px;
+    font-family: Montserrat;
+    font-size: 28px;
+  }
+  &_prev_link {
+    margin-right: 20px;
+    font-family: Montserrat;
+    font-size: 28px;
+  }
+  &_next_link {
+    margin-left: 20px;
+    font-family: Montserrat;
+    font-size: 28px;
   }
 }

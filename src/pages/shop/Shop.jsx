@@ -6,6 +6,7 @@ import iphone14_promax_gold from "../../assets/phones/iphone14_promax_gold1 1.pn
 import iphone14_promax_spaceblack from "../../assets/phones/iphone14_promax_spaceblack1 1.png";
 import iphone14_plus_red1 from "../../assets/phones/iphone14_plus_red1 1.png";
 import iphone14_plus_purple1 from "../../assets/phones/iphone14_plus_purple1 1.png";
+import ReactPaginate from "react-paginate";
 import Footer from "../../components/footer/Footer";
 //fix image importation
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
@@ -13,6 +14,16 @@ import { CiSearch } from "react-icons/ci";
 import PhoneCard from "../../components/cards/phoneCard/PhoneCard";
 const Shop = () => {
   const [show, setShow] = React.useState(false);
+  const [itemOffset, setItemOffset] = React.useState(0);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * 4) % items.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
   const showDropdown = () => {
     setShow(!show);
   };
@@ -78,6 +89,41 @@ const Shop = () => {
       image: iphone14_promax_spaceblack,
     },
   ];
+  const endOffset = itemOffset + 6;
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = items.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(items.length / 4);
+
+  const dropDownItems = [
+    {
+      name: "Newest",
+      path: "/newest",
+    },
+    {
+      name: "Best Selling",
+      path: "/best-selling",
+    },
+    {
+      name: "Oldest",
+      path: "/oldest",
+    },
+    {
+      name: "Price: Low to High",
+      path: "/price-low-to-high",
+    },
+    {
+      name: "Price: High to Low",
+      path: "/price-high-to-low",
+    },
+    {
+      name: "Name: A to Z",
+      path: "/name-a-to-z",
+    },
+    {
+      name: "Low Selling",
+      path: "/low-selling",
+    },
+  ];
 
   return (
     <div>
@@ -137,40 +183,21 @@ const Shop = () => {
                   }
                   style={{ display: show ? "block" : "none" }}
                 >
-                  <div
-                    className={
-                      styles.container_content_filters_dropdown_container_cont_list_item
-                    }
-                  >
-                    <span>Volvo</span>
-                  </div>
-                  <div
-                    className={
-                      styles.container_content_filters_dropdown_container_cont_list_item
-                    }
-                  >
-                    <span>Saab</span>
-                  </div>
-                  <div
-                    className={
-                      styles.container_content_filters_dropdown_container_cont_list_item
-                    }
-                  >
-                    <span>Volvo</span>
-                  </div>
-                  <div
-                    className={
-                      styles.container_content_filters_dropdown_container_cont_list_item
-                    }
-                  >
-                    <span>Saab</span>
-                  </div>
+                  {dropDownItems.map((item) => (
+                    <div
+                      className={
+                        styles.container_content_filters_dropdown_container_cont_list_item
+                      }
+                    >
+                      <span>{item.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
           <div className={styles.container_content_cards}>
-            {items.map((item) => (
+            {currentItems.map((item) => (
               <PhoneCard
                 price={item.price}
                 name={item.name}
@@ -179,6 +206,20 @@ const Shop = () => {
               />
             ))}
           </div>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=" >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< "
+            renderOnZeroPageCount={null}
+            containerClassName={styles.pagination}
+            activeClassName={styles.pagination_active}
+            pageLinkClassName={styles.pagination_link}
+            previousClassName={styles.pagination_prev_link}
+            nextClassName={styles.pagination_next_link}
+          />
         </div>
       </div>
       <div style={{ height: "96px" }}></div>

@@ -93,7 +93,7 @@ const router = createBrowserRouter(
           loader: () => Promise.resolve({}),
         },
         {
-          path: "account/carddetails/",
+          path: "account/card_details",
           element: <CardDetails />,
           loader: () => Promise.resolve({}),
         },
