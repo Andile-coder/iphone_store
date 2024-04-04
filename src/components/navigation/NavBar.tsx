@@ -7,7 +7,7 @@ import { CiMenuBurger } from "react-icons/ci";
 import logoName from "../../assets/ace_iphone_name2.png";
 interface Props {}
 
-const NavBar: React.FC<Props> = (props) => {
+const NavBar: React.FC<Props> = () => {
   const pages = [
     { name: "Home", path: "/" },
     { name: "Shop", path: "/shop" },

@@ -14,7 +14,7 @@ import PhoneCard from "../../components/cards/phoneCard/PhoneCard";
 import Footer from "../../components/footer/Footer";
 interface Props {}
 
-const Home: React.FC<Props> = (props) => {
+const Home: React.FC<Props> = () => {
   const navigate = useNavigate();
   const items = [
     {
@@ -138,6 +138,8 @@ const Home: React.FC<Props> = (props) => {
                     image={item.image}
                     space={item.space}
                     id={item.id}
+                    title={item.name}
+                    link={`/product/${item.id}`}
                   />
                 ))}
               </div>
@@ -167,6 +169,8 @@ const Home: React.FC<Props> = (props) => {
                     image={item.image}
                     space={item.space}
                     id={item.id}
+                    title={item.name}
+                    link={`/product/${item.id}`}
                   />
                 ))}
               </div>
