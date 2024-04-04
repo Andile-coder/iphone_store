@@ -124,4 +124,10 @@
       margin-bottom: 20px;
     }
   }
+  .items_container {
+    padding: 0px 15px !important;
+    &_content_list {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
 }
