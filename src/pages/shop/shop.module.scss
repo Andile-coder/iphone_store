@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+@import "../../components/topography/screens/screens";
 
 .container {
   padding: 0px 128px;
@@ -152,5 +153,49 @@
     font-family: Montserrat;
     font-size: 28px;
     cursor: pointer;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 0px;
+    width: 100vw;
+    overflow: hidden !important;
+  }
+  .container_content_filters {
+    flex-direction: column;
+    padding: 0px 15px;
+    margin-top: 40px;
+    &_search {
+      width: 100%;
+      margin-bottom: 20px;
+      &_input {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+      &_icon {
+        display: flex;
+        width: 52px;
+        height: 52.2px;
+      }
+    }
+    &_dropdown_container {
+      flex-direction: column;
+      row-gap: 20px;
+      &_cont {
+        width: 100%;
+        &_picked {
+          width: 100%;
+        }
+        &_list {
+          width: 50%;
+        }
+      }
+    }
+  }
+  .container_content_cards {
+    padding: 0px 15px;
+    grid-template-columns: 1fr 1fr;
   }
 }

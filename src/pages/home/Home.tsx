@@ -175,6 +175,7 @@ const Home: React.FC<Props> = (props) => {
                   text="View More"
                   height="64px"
                   color="secondary"
+                  onClick={() => navigate("/shop")}
                 />
               </div>
             </div>
