@@ -131,23 +131,26 @@
 
   &_active {
     background-color: #be0002;
-    color: #fffdfd;
     border-radius: 5px;
+    color: #fffdfd;
   }
   &_link {
     display: flex;
-    margin: 20px;
+    margin: 10px;
     font-family: Montserrat;
-    font-size: 28px;
+    font-size: 20px;
+    cursor: pointer;
   }
   &_prev_link {
     margin-right: 20px;
     font-family: Montserrat;
     font-size: 28px;
+    cursor: pointer;
   }
   &_next_link {
-    margin-left: 20px;
+    margin-left: 25px;
     font-family: Montserrat;
     font-size: 28px;
+    cursor: pointer;
   }
 }
