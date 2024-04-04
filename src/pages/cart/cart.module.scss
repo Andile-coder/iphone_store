@@ -1,12 +1,16 @@
+@import "../../components/topography/screens/screens";
+@import "../../components/topography/theme/colors";
+
 .container {
   padding: 0px 128px;
+  font-family: Montserrat;
   &_content {
     &_title {
       margin-top: 63px;
       display: flex;
       justify-content: center;
       &_text {
-        color: var(--Red-900, #be0002);
+        color: var(--Red-900, $primary-color);
         font-family: Montserrat;
         font-size: 48px;
         font-style: normal;
@@ -17,7 +21,7 @@
     &_cont {
       width: 100%;
       // height: 433px;
-      //   background-color: #be0002;
+      //   background-color: $primary-color;;
       margin: 49px auto auto;
       margin-bottom: 293px;
       display: grid;
@@ -65,7 +69,7 @@
           }
         }
         .hr {
-          border: 1px solid #be0002;
+          border: 1px solid $primary-color;
           width: 100%;
           margin: 0;
           padding: 0;
@@ -75,9 +79,31 @@
       }
       &_divider {
         height: 100%;
-        background-color: #be0002;
+        background-color: $primary-color;
         width: 1.5px;
       }
     }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 0px;
+  }
+  .container_content_cont {
+    padding: 0px 15px;
+    display: flex !important;
+    flex-direction: column;
+    &_list {
+      width: 100% !important;
+    }
+  }
+  .container_content_cont_pricing_cont {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+  .container_content_cont_divider {
+    width: 100%;
+    background-color: $primary-color;
+    height: 0px;
   }
 }

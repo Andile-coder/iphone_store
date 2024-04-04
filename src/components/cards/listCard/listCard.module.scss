@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+@import "../../topography/screens/screens";
+@import "../../topography/theme/colors";
+
 .container {
   &_content {
     display: grid;
@@ -79,5 +82,22 @@
     padding: 0;
     margin-top: 16px;
     margin-bottom: 16px;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    &_content {
+      display: flex;
+      &_right {
+        width: 100%;
+        justify-content: space-around;
+        &_quantity {
+          & > span {
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
   }
 }
