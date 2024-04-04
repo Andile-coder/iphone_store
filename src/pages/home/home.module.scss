@@ -110,4 +110,18 @@
     width: 100vw;
     overflow: hidden !important;
   }
+  .hero {
+    margin-top: 0px !important;
+  }
+  .hero_container {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &_img {
+      width: 80% !important;
+      height: 80% !important;
+      margin-bottom: 20px;
+    }
+  }
 }
