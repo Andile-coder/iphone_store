@@ -4,7 +4,7 @@ import NavBar from "../../components/navigation/NavBar";
 import OrderHistoryTable from "../../components/tables/orderHistoryTable/orderHistoryTable";
 const OrderHistory = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ overflow: "hidden" }}>
       <div className={styles.container_content}>
         <NavBar />
         <div className={styles.container_content_title}>

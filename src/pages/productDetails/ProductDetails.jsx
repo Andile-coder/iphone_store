@@ -25,7 +25,7 @@ const ProductDetails = () => {
     },
   ];
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <div className={styles.container}>
         <div className={styles.container_content}>
           <NavBar />

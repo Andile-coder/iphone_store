@@ -126,7 +126,7 @@ const Shop = () => {
   ];
 
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <div className={styles.container}>
         <div className={styles.container_content}>
           <div style={{ width: "100vw" }}>

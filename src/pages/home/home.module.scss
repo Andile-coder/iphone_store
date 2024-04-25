@@ -3,6 +3,7 @@
 
 .home_main {
   padding: 0px 128px;
+  overflow: hidden;
   .hero {
     margin-top: 70px;
     &_container {
@@ -76,6 +77,9 @@
   }
   .height108 {
     height: 108px;
+  }
+  .height100 {
+    height: 70px;
   }
   .items_container {
     // width: 100%;

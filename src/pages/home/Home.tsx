@@ -89,9 +89,9 @@ const Home: React.FC<Props> = () => {
     },
   ];
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <div className={styles.home_main}>
-        <div style={{ width: "100vw" }}>
+        <div>
           <NavBar />
         </div>
         <section className={styles.hero}>
@@ -121,7 +121,7 @@ const Home: React.FC<Props> = () => {
             </div>
           </div>
         </section>
-        <div className={styles.height108}></div>
+        <div className={styles.height100}></div>
         <HomeBar />
         <div className={styles.height108}></div>
         <section>

@@ -1,5 +1,9 @@
+@import "../topography/theme/_colors";
+@import "../topography/screens/screens";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+
 .container {
-  background: var(--Red-900, #be0002);
+  background: var(--Red-900, $primary-color);
   height: 286px;
   padding: 64px 128px;
   &_content {
@@ -56,5 +60,32 @@
       font-weight: 600;
       line-height: normal;
     }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    height: auto;
+    padding: 40px 0px !important;
+    &_content {
+      display: flex !important;
+      align-items: center;
+      flex-direction: column !important;
+      text-align: center;
+      column-gap: 20px !important;
+      &_links,
+      &_help {
+        margin-top: 20px !important;
+      }
+    }
+    .items {
+      &_item {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  .socials {
+    display: flex;
+    justify-content: center;
   }
 }
