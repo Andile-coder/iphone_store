@@ -18,8 +18,14 @@ interface Props {
 }
 const CustomInput: React.FC<Props> = (props) => {
   return (
-    <div className={styles.container} style={{ width: "100%" }}>
-      <div className={styles.container_content}>
+    <div
+      className={styles.container}
+      style={{ width: props.width, height: props.height }}
+    >
+      <div
+        className={styles.container_content}
+        style={{ width: props.width, height: props.height }}
+      >
         <label htmlFor="this" className={styles.container_content_label}>
           {props.label}
         </label>

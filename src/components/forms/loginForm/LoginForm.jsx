@@ -15,20 +15,32 @@ const LoginForm = () => {
             <span>Sign In</span>
           </div>
           <div className={styles.container_content_form_cont_social_logins}>
-            <CustomButton
-              text="Sign in with Google"
-              color="secondary"
-              textColor="#000000"
-              iconPosition="left"
-              icon={<FcGoogle />}
-            />
-            <CustomButton
-              text="Sign in with Facebook"
-              color="secondary"
-              iconPosition="left"
-              textColor="#000000"
-              icon={<FaFacebook color="#1877F2" />}
-            />
+            <div
+              className={styles.container_content_form_cont_social_logins_btn}
+            >
+              <CustomButton
+                text="Sign in with Google"
+                color="secondary"
+                textColor="#000000"
+                iconPosition="left"
+                icon={<FcGoogle />}
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <div
+              className={styles.container_content_form_cont_social_logins_btn}
+            >
+              <CustomButton
+                text="Sign in with Facebook"
+                color="secondary"
+                iconPosition="left"
+                textColor="#000000"
+                icon={<FaFacebook color="#1877F2" />}
+                height="100%"
+                width="100%"
+              />
+            </div>
           </div>
           <div className={styles.container_content_form_cont_or}>
             <div className={styles.container_content_form_cont_or_line}></div>
@@ -44,8 +56,8 @@ const LoginForm = () => {
                   type="text"
                   placeholder="Email"
                   label="Email"
-                  height="30px"
-                  width="90.5%"
+                  height="100%"
+                  width="100%"
                 />
               </div>
               <div className={styles.container_content_form_cont_top_input}>
@@ -53,12 +65,11 @@ const LoginForm = () => {
                   type="password"
                   placeholder="************"
                   label="Password"
-                  height="30px"
-                  width="90.5%"
+                  height="100%"
+                  width="100%"
                 />
               </div>
             </div>
-
             <CustomButton text="Sign in" />
             <div className={styles.container_content_form_cont_extra}>
               <Link

@@ -5,7 +5,7 @@ import Footer from "../../../components/footer/Footer";
 import NavBar from "../../../components/navigation/NavBar";
 const SignIn = () => {
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <div className={styles.container}>
         <NavBar />
         <div className={styles.container_content}>

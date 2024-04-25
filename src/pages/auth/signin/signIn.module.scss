@@ -1,3 +1,6 @@
+@import "../../../components/topography/theme/colors";
+@import "../../../components/topography/screens/screens";
+
 .container {
   padding: 0px 128px;
   &_content {
@@ -5,5 +8,16 @@
     display: flex;
     margin: 100px auto;
     flex-direction: column;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 0px;
+    width: 100vw;
+    overflow: hidden !important;
+    &_content {
+      margin-top: 50px;
+      width: 100%;
+    }
   }
 }
