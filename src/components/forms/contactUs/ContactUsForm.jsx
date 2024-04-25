@@ -26,13 +26,9 @@ const ContactUsForm = () => {
               width="100%"
               rows={10}
               resize={false}
-              placeholder="How many we assist you?"
+              placeholder="How may we assist you?"
             />
-            <CustomButton
-              text="Send Message"
-              className="active"
-              width="104.5%"
-            />
+            <CustomButton text="Send Message" className="active" width="100%" />
           </form>
         </div>
       </div>

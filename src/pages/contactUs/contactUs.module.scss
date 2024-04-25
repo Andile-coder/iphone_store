@@ -1,3 +1,6 @@
+@import "../../components/topography/theme/colors";
+@import "../../components/topography/screens/screens";
+
 .container {
   padding: 0px 128px;
   &_content {
@@ -21,5 +24,23 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
     }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 0px;
+    width: 100vw;
+    overflow: hidden !important;
+    &_content {
+      &_form {
+        padding: 40px 20px 60px 20px;
+        grid-template-columns: 1fr;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .container_content_couch {
+    display: none;
   }
 }
