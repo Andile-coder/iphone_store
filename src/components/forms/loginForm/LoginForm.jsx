@@ -72,11 +72,14 @@ const LoginForm = () => {
             </div>
             <CustomButton text="Sign in" />
             <div className={styles.container_content_form_cont_extra}>
+              <span className={styles.container_content_form_cont_extra_text}>
+                Don't have an account?
+              </span>
               <Link
                 to="/signup"
                 className={styles.container_content_form_cont_extra_link}
               >
-                Create an account
+                Sign up
               </Link>
             </div>
           </form>

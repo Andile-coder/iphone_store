@@ -45,6 +45,13 @@ const ProductDetails = () => {
               <div className={styles.container_content_cont_info_title}>
                 <span>iPhone 14 Pro Max</span>
               </div>
+              <div
+                className={
+                  styles.container_content_cont_info_cont_summary_item_subtotal_mobile
+                }
+              >
+                <span>R68964</span>
+              </div>
               <ExtraInfoContainer extraInfo={extraInfo} />
             </div>
           </div>
@@ -89,7 +96,9 @@ const ExtraInfoContainer = ({ extraInfo }) => {
       >
         <span>R68964</span>
       </div>
-      <CustomButton text="Add to Cart" height="56px" className="active" />
+      <div className={styles.container_content_cont_info_cont_summary_item_btn}>
+        <CustomButton text="Add to Cart" height="56px" className="active" />
+      </div>
     </div>
   );
 };

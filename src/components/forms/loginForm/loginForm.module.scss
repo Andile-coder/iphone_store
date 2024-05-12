@@ -22,9 +22,10 @@
       }
       &_social_logins {
         display: flex;
+        width: 100%;
         justify-content: space-between;
         &_btn {
-          margin: 0 8px;
+          // margin: 0 8px;
         }
       }
       &_or {
@@ -39,7 +40,7 @@
           height: 1px;
 
           background: #151313;
-          width: 216px;
+          width: 40%;
         }
         &_text {
           color: var(--Black, #151313);
@@ -60,8 +61,10 @@
         grid-template-columns: 1fr 1fr;
         column-gap: 24px;
         width: 100%;
+        margin-bottom: 40px;
         &_input {
-          margin-bottom: 24px;
+          height: 60px;
+          margin-bottom: 40px;
         }
       }
       &_password {

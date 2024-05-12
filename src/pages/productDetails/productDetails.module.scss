@@ -1,3 +1,5 @@
+@import "../../components/topography/theme/colors";
+@import "../../components/topography/screens/screens";
 .container {
   padding: 0px 128px;
   &_content {
@@ -40,7 +42,7 @@
       &_divider {
         height: 100%;
         background-color: #be0002;
-        width: 4px;
+        width: 2px;
       }
       &_info {
         width: 454px;
@@ -87,7 +89,11 @@
                 }
               }
             }
-            &_item_subtotal {
+            &_item_subtotal_mobile {
+              display: none;
+            }
+            &_item_subtotal,
+            &_item_subtotal_mobile {
               margin-bottom: 64px;
               span {
                 color: var(--Black, #151313);
@@ -99,6 +105,71 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 20px;
+    width: 100vw;
+    overflow: hidden !important;
+    &_content_cont {
+      grid-template-columns: 1fr;
+      column-gap: 0px important;
+      width: 100% !important;
+      padding: 0px 0px;
+      &_divider {
+        margin-top: 34px;
+        height: 1px;
+        background-color: #be0002;
+        width: auto;
+      }
+      &_img {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center !important;
+
+        &_container {
+          width: 50%;
+          padding: 0px 0px !important;
+
+          & > img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      &_info {
+        width: 100%;
+        margin-top: 32px;
+        &_title {
+          & > span {
+            color: var(--Red-900, #be0002);
+            font-family: Montserrat;
+            font-size: 32px !important;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+          }
+        }
+
+        &_cont_summary_item_subtotal_mobile {
+          display: flex;
+          margin-bottom: 10px;
+        }
+        &_cont_summary_item_subtotal {
+          display: none;
+        }
+        &_cont_summary_item_blocks {
+          margin: auto;
+          margin-bottom: 24px;
+        }
+        &_cont_summary_item_btn {
+          display: flex;
+          width: 100%;
+          justify-content: stretch;
         }
       }
     }
