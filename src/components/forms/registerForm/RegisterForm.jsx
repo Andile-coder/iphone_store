@@ -14,20 +14,32 @@ const RegisterForm = () => {
             <span>Sign Up</span>
           </div>
           <div className={styles.container_content_form_cont_social_logins}>
-            <CustomButton
-              text="Sign up with Google"
-              color="secondary"
-              textColor="#000000"
-              iconPosition="left"
-              icon={<FcGoogle />}
-            />
-            <CustomButton
-              text="Sign up with Facebook"
-              color="secondary"
-              iconPosition="left"
-              textColor="#000000"
-              icon={<FaFacebook color="#1877F2" />}
-            />
+            <div
+              className={styles.container_content_form_cont_social_logins_btn}
+            >
+              <CustomButton
+                text="Sign up with Google"
+                color="secondary"
+                textColor="#000000"
+                iconPosition="left"
+                icon={<FcGoogle />}
+                height="100%"
+                width="100%"
+              />
+            </div>
+            <div
+              className={styles.container_content_form_cont_social_logins_btn}
+            >
+              <CustomButton
+                text="Sign up with Facebook"
+                color="secondary"
+                iconPosition="left"
+                textColor="#000000"
+                icon={<FaFacebook color="#1877F2" />}
+                height="100%"
+                width="100%"
+              />
+            </div>
           </div>
           <div className={styles.container_content_form_cont_or}>
             <div className={styles.container_content_form_cont_or_line}></div>
@@ -43,8 +55,8 @@ const RegisterForm = () => {
                   type="text"
                   placeholder="Name"
                   label="Full Name"
-                  height="30px"
-                  width="90.5%"
+                  height="100%"
+                  width="100%"
                 />
               </div>
               <div className={styles.container_content_form_cont_top_input}>
@@ -52,20 +64,30 @@ const RegisterForm = () => {
                   type="text"
                   placeholder="Email"
                   label="Email"
-                  height="30px"
-                  width="90.5%"
+                  height="100%"
+                  width="100%"
+                />
+              </div>
+              <div className={styles.container_content_form_cont_top_input}>
+                <CustomInput
+                  type="password"
+                  placeholder="************"
+                  label="Password"
+                  height="100%"
+                  width="100%"
+                />
+              </div>
+              <div className={styles.container_content_form_cont_top_input}>
+                <CustomInput
+                  type="password"
+                  placeholder="************"
+                  label="Confirm Password"
+                  height="100%"
+                  width="100%"
                 />
               </div>
             </div>
-            <div className={styles.container_content_form_cont_password}>
-              <CustomInput
-                type="password"
-                placeholder="************"
-                label="Password"
-                height="30px"
-                width="95.5%"
-              />
-            </div>
+
             <CustomButton text="Sign in" />
             <div className={styles.container_content_form_cont_extra}>
               <span className={styles.container_content_form_cont_extra_text}>

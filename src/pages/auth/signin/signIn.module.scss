@@ -12,7 +12,7 @@
 }
 @media (max-width: $breakpoint-small) {
   .container {
-    padding: 0px 0px;
+    padding: 0px 20px;
     width: 100vw;
     overflow: hidden !important;
     &_content {
