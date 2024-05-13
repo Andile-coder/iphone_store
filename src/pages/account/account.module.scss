@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+@import "../../components/topography/screens/screens";
+@import "../../components/topography/theme/colors";
 
 .container {
   padding: 0px 128px;
@@ -7,10 +9,10 @@
   &_content {
     &_cont {
       display: flex;
-      width: 100vh;
+      width: 100vw;
       &_nav {
         background-color: #fbdddd;
-        height: 90vh;
+        height: 95vh;
 
         min-width: 281px;
         &_user {
@@ -55,7 +57,36 @@
       &_details {
         margin-left: 46px;
         margin-top: 80px;
-        min-width: 481px;
+        width: 481px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 20px;
+    width: 100vw !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    &_content_cont {
+      display: flex;
+      flex-direction: column;
+      width: 100% !important;
+      &_nav {
+        height: 100% !important;
+        &_user {
+          display: flex;
+          width: 100%;
+          margin-top: 20px;
+        }
+        &_items {
+          display: none;
+        }
+      }
+      &_details {
+        margin-left: 0px;
+        width: 100% !important;
+        min-width: none !important;
       }
     }
   }
