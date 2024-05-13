@@ -1,3 +1,7 @@
+@import "../../topography/theme/_colors";
+@import "../../topography/screens/screens";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+
 .container {
   &_content {
     &_form_cards {
@@ -29,6 +33,46 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    &_content {
+      &_form {
+        display: flex;
+        flex-direction: column;
+
+        &_card_info {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          &_input {
+            height: 60px;
+          }
+        }
+        &_card_extra {
+          margin-top: 40px;
+          height: 60px;
+          display: flex;
+          &_input {
+            width: 30%;
+          }
+        }
+        &_checkbox {
+          margin-top: 60px;
+          display: flex;
+          align-items: center;
+
+          input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+          }
+          & > span {
+          }
+        }
       }
     }
   }

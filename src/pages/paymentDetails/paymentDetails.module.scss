@@ -1,3 +1,6 @@
+@import "../../components/topography/theme/colors";
+@import "../../components/topography/screens/screens";
+
 .container {
   padding: 0px 128px;
   &_content {
@@ -70,6 +73,49 @@
         height: 100%;
         background-color: #be0002;
         width: 1.5px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 20px;
+    width: 100vw !important;
+    overflow: hidden !important;
+    &_title {
+      margin-top: 63px;
+      display: flex;
+      justify-content: center;
+      &_text {
+        color: var(--Red-900, #be0002);
+        font-family: Montserrat;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+    &_content {
+      &_title {
+        margin-top: 63px;
+        display: flex;
+        justify-content: center;
+        &_text {
+          font-size: 28px;
+        }
+      }
+      &_cont {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        gap: 20px;
+        &_form {
+          width: 100% !important;
+        }
+        &_pricing_cont {
+          margin: 0px !important;
+          width: 100%;
+        }
       }
     }
   }

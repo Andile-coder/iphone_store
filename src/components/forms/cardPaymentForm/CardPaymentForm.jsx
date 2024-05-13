@@ -8,7 +8,7 @@ const CardPaymentForm = () => {
   return (
     <div className={styles.container}>
       <div className={styles.container_content}>
-        <form action="">
+        <form className={styles.container_content_form} action="">
           <div className={styles.container_content_form_cards}>
             <div className={styles.container_content_form_cards_item}>
               <CustomButton
@@ -29,43 +29,48 @@ const CardPaymentForm = () => {
           </div>
 
           <div className={styles.container_content_form_card_info}>
-            <div style={{ marginBottom: "20px" }}>
-              {" "}
+            <div className={styles.container_content_form_card_info_input}>
               <CustomInput
                 placeholder="John Doe"
                 label="Card Holder"
-                height="30px"
-                width="92.5%"
+                height="100%"
+                width="100%"
               />
             </div>
-            <div style={{ marginBottom: "20px" }}>
+            <div className={styles.container_content_form_card_info_input}>
               <CustomInput
                 placeholder="12345678899"
                 label="Card Number"
-                height="30px"
-                width="92.5%"
+                height="100%"
+                width="100%"
               />
             </div>
           </div>
           <div className={styles.container_content_form_card_extra}>
-            <CustomInput
-              placeholder="02"
-              label="Month"
-              width="75.5%"
-              height="30px"
-            />
-            <CustomInput
-              placeholder="2024"
-              label="Year"
-              width="75.5%"
-              height="30px"
-            />
-            <CustomInput
-              placeholder="123"
-              label="CVV"
-              width="75.5%"
-              height="30px"
-            />
+            <div className={styles.container_content_form_card_extra_input}>
+              <CustomInput
+                placeholder="02"
+                label="Month"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div className={styles.container_content_form_card_extra_input}>
+              <CustomInput
+                placeholder="2024"
+                label="Year"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <div className={styles.container_content_form_card_extra_input}>
+              <CustomInput
+                placeholder="123"
+                label="CVV"
+                width="100%"
+                height="100%"
+              />
+            </div>
           </div>
 
           <div className={styles.container_content_form_checkbox}>
