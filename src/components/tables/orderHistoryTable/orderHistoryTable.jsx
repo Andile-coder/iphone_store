@@ -16,10 +16,10 @@ const orderHistoryTable = () => {
               <span>Date</span>
             </th>
             <th>
-              <span>Order Total</span>
+              <span>Status</span>
             </th>
             <th>
-              <span>Order Status</span>
+              <span>Total</span>
             </th>
           </tr>
         </thead>
@@ -47,11 +47,12 @@ const TableRow = ({ index }) => {
       <td>
         <span>21-Dec-2023</span>
       </td>
-      <td>
-        <span className={styles.price_text}>$100.00</span>
-      </td>
+
       <td>
         <span>Shipped</span>
+      </td>
+      <td>
+        <span className={styles.price_text}>$100.00</span>
       </td>
     </tr>
   );

@@ -1,13 +1,14 @@
+@import "../../topography/theme/_colors";
+@import "../../topography/screens/screens";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
 .container {
   &_table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0 1em;
-
     &_row_header {
       & > tr {
         background: #f0bbbb;
-
         th {
           height: 48px;
           text-align: start;
@@ -43,6 +44,34 @@
       & > tr:last-child {
         & > td {
           padding-bottom: 14px;
+        }
+      }
+    }
+  }
+}
+// Andile@test2021
+@media (max-width: $breakpoint-small) {
+  .container {
+    width: 100% !important;
+    overflow: hidden !important;
+    &_content_title {
+      &_text {
+        font-size: 28px;
+      }
+    }
+    &_table {
+      &_row_header {
+        & > tr {
+          th {
+            padding-left: 5px !important;
+          }
+        }
+      }
+      &_row_body {
+        & > tr {
+          td {
+            padding-left: 5px;
+          }
         }
       }
     }
