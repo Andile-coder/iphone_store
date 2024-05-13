@@ -27,53 +27,76 @@ const DeliveryDetails = () => {
                 <div
                   className={styles.container_content_cont_form_delivery_info}
                 >
-                  <div style={{ marginBottom: "20px" }}>
+                  <div
+                    className={
+                      styles.container_content_cont_form_delivery_info_input
+                    }
+                  >
                     <CustomInput
                       placeholder="1 Example Street"
                       label="Street Address"
-                      height="30px"
-                      width="92.5%"
+                      height="100%"
+                      width="100%"
                     />
                   </div>
-                  <div style={{ marginBottom: "20px" }}>
+                  <div
+                    className={
+                      styles.container_content_cont_form_delivery_info_input
+                    }
+                  >
                     <CustomInput
                       placeholder="Beautiful Gardens"
                       label="Complex/Building Name "
-                      height="30px"
-                      width="92.5%"
+                      height="100%"
+                      width="100%"
                     />
                   </div>
-                  <div style={{ marginBottom: "20px" }}>
+                  <div
+                    className={
+                      styles.container_content_cont_form_delivery_info_input
+                    }
+                  >
                     <CustomInput
                       placeholder="Camps Bay"
                       label="Suburb"
-                      height="30px"
-                      width="92.5%"
+                      height="100%"
+                      width="100%"
                     />
                   </div>{" "}
-                  <div style={{ marginBottom: "20px" }}>
+                  <div
+                    className={
+                      styles.container_content_cont_form_delivery_info_input
+                    }
+                  >
                     <CustomInput
                       placeholder="Cape Town"
                       label="City/Town"
-                      height="30px"
-                      width="92.5%"
+                      height="100%"
+                      width="100%"
                     />
                   </div>{" "}
-                  <div style={{ marginBottom: "20px" }}>
+                  <div
+                    className={
+                      styles.container_content_cont_form_delivery_info_input
+                    }
+                  >
                     <CustomInput
                       placeholder="Western Cape"
                       label="Province"
-                      height="30px"
-                      width="92.5%"
+                      height="100%"
+                      width="100%"
                     />
                   </div>
-                  <div style={{ marginBottom: "20px" }}>
+                  <div
+                    className={
+                      styles.container_content_cont_form_delivery_info_input
+                    }
+                  >
                     <CustomInput
                       placeholder="8005"
                       label="Postal Code"
-                      height="30px"
-                      width="92.5%"
-                      type="number"
+                      height="100%"
+                      width="100%"
                     />
                   </div>
                 </div>
