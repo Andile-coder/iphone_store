@@ -9,26 +9,44 @@ const PasswordUpdateForm = () => {
       <div className={styles.container_content}>
         <div className={styles.container_content_form_cont}>
           <form className={styles.container_content_form_cont_context}>
-            <CustomInput
-              type="text"
-              placeholder=""
-              width="100%"
-              label="Old Password"
-            />
-            <CustomInput
-              type="password"
-              placeholder=""
-              width="100%"
-              label="New Pasword"
-            />
-            <CustomInput
-              type="password"
-              placeholder=""
-              width="100%"
-              label="Confirm Password"
-            />
+            <div className={styles.container_content_form_cont_context_input}>
+              <CustomInput
+                type="text"
+                placeholder=""
+                width="100%"
+                height="100%"
+                label="Old Password"
+              />
+            </div>
 
-            <CustomButton text="Save" className="active" width="104.5%" />
+            <div className={styles.container_content_form_cont_context_input}>
+              <CustomInput
+                type="password"
+                placeholder=""
+                width="100%"
+                height="100%"
+                label="New Pasword"
+              />
+            </div>
+
+            <div className={styles.container_content_form_cont_context_input}>
+              <CustomInput
+                type="password"
+                placeholder=""
+                width="100%"
+                height="100%"
+                label="Confirm Password"
+              />
+            </div>
+
+            <div className={styles.container_content_form_cont_context_input}>
+              <CustomButton
+                text="Save"
+                className="active"
+                width="100%"
+                height="100%"
+              />
+            </div>
           </form>
         </div>
       </div>

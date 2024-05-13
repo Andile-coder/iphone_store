@@ -5,9 +5,13 @@
     justify-content: space-between;
   }
   &_delivery_info {
-    // display: grid;
-    // grid-template-columns: 1fr 1fr;
-    // column-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    &_input {
+      height: 50px;
+      width: 100%;
+    }
   }
   &_delivery_extra {
     display: flex;

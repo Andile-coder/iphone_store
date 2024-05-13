@@ -3,7 +3,13 @@
   &_content {
     &_form_cont {
       &_context {
-        // width: 581px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        &_input {
+          height: 60px;
+          width: 100%;
+        }
       }
     }
   }

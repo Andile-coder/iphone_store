@@ -4,7 +4,7 @@ import AddressDetailsForm from "../../../components/forms/addressDetailsForm/Add
 const AddressDetails = () => {
   return (
     <div>
-      <h1>Address details</h1>
+      <h1>Address Details</h1>
       <AddressDetailsForm visibleBtn={true} />
     </div>
   );
