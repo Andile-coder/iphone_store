@@ -1,3 +1,6 @@
+@import "../../components/topography/screens/screens";
+@import "../../components/topography/theme/colors";
+
 .container {
   padding: 0px 128px;
   &_content {
@@ -78,5 +81,34 @@
         width: 1.5px;
       }
     }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .container {
+    padding: 0px 20px;
+    width: 100vw !important;
+    overflow: hidden !important;
+    &_content_title {
+      &_text {
+        font-size: 28px;
+      }
+    }
+  }
+  .container_content_cont {
+    display: flex !important;
+    flex-direction: column;
+    &_list {
+      width: 100% !important;
+    }
+  }
+  .container_content_cont_pricing_cont {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+  .container_content_cont_divider {
+    width: 100%;
+    background-color: $primary-color;
+    height: 0px;
   }
 }

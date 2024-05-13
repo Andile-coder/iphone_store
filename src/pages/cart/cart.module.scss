@@ -87,10 +87,16 @@
 }
 @media (max-width: $breakpoint-small) {
   .container {
-    padding: 0px 0px;
+    padding: 0px 20px;
+    width: 100vw !important;
+    overflow: hidden !important;
+    &_content_title {
+      &_text {
+        font-size: 28px;
+      }
+    }
   }
   .container_content_cont {
-    padding: 0px 15px;
     display: flex !important;
     flex-direction: column;
     &_list {

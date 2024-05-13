@@ -54,7 +54,7 @@ const Cart = () => {
     <div>
       <div className={styles.container}>
         <div className={styles.container_content}>
-          <div style={{ width: "100vw" }}>
+          <div>
             <NavBar />
           </div>
           <div className={styles.container_content_title}>
