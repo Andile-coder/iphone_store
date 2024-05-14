@@ -5,6 +5,9 @@ import user from "../../assets/user.jpg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import AccountNavCard from "../../components/cards/accountNavCard/AccountNavCard";
 import Footer from "./../../components/footer/Footer";
+import { AiOutlineUser } from "react-icons/ai";
+import { MdLockOutline } from "react-icons/md";
+import { HiOutlineHome } from "react-icons/hi";
 const Account = () => {
   const [pages, setPages] = useState([
     {
@@ -12,18 +15,21 @@ const Account = () => {
       name: "Profile",
       index: 0,
       active: true,
+      icon: <AiOutlineUser size={34} />,
     },
     {
       path: "account/password",
       name: "Password",
       index: 1,
       active: false,
+      icon: <MdLockOutline size={34} />,
     },
     {
       path: "account/addressdetails",
       name: "Address Details",
       index: 2,
       active: false,
+      icon: <HiOutlineHome size={34} />,
     },
     // {
     //   path: "account/carddetails",
@@ -69,6 +75,18 @@ const Account = () => {
                     active={page.active}
                     onClick={() => goTo(page.path, page.index)}
                   />
+                ))}
+              </div>
+              <div className={styles.container_content_cont_nav_mobile_items}>
+                {pages.map((page) => (
+                  <Link
+                    to={page.path}
+                    className={
+                      styles.container_content_cont_nav_mobile_items_item
+                    }
+                  >
+                    {page.icon}
+                  </Link>
                 ))}
               </div>
             </div>

@@ -53,6 +53,9 @@
         &_items {
           margin-top: 40px;
         }
+        &_mobile_tems {
+          display: none;
+        }
       }
       &_details {
         margin-left: 46px;
@@ -74,13 +77,32 @@
       width: 100% !important;
       &_nav {
         height: 100% !important;
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
         &_user {
           display: flex;
           width: 100%;
           margin-top: 20px;
+          &_text {
+            margin-top: 15px;
+            text-align: center;
+          }
         }
         &_items {
           display: none;
+        }
+        &_mobile_items {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 20px;
+          &_item {
+            color: #000;
+            text-decoration: none !important;
+          }
         }
       }
       &_details {
