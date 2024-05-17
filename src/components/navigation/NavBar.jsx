@@ -5,9 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/ace_iphone2.png";
 import { CiMenuBurger } from "react-icons/ci";
 import logoName from "../../assets/ace_iphone_name2.png";
-interface Props {}
+import { BsCart3 } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
 
-const NavBar: React.FC<Props> = () => {
+const NavBar = () => {
   const pages = [
     { name: "Home", path: "/" },
     { name: "Shop", path: "/shop" },
@@ -15,8 +16,10 @@ const NavBar: React.FC<Props> = () => {
   ];
   const [active, setActive] = React.useState(0);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
+  const isLogged = useSelector((state) => state.auth.isLogged);
 
-  const handleActive = (index: number) => {
+  const handleActive = (index) => {
     console.log(index);
     setActive(index);
   };
@@ -54,13 +57,32 @@ const NavBar: React.FC<Props> = () => {
           ))}
         </div>
         <div className={styles.container_content_btns}>
-          <CustomButton text="Cart" height="64px" onClick={goToCart} />
-          <CustomButton
-            text="Login"
-            height="64px"
-            color="secondary"
-            onClick={goToLogin}
-          />
+          {/* <CustomButton text="Cart" height="64px" onClick={goToCart} /> */}
+
+          <div className={styles.container_content_btns_cart}>
+            <Link to="/cart" style={{ color: "#151313" }}>
+              <BsCart3 size={34} />
+            </Link>
+          </div>
+
+          {
+            // if user is logged in, show user name
+            isLogged ? (
+              <CustomButton
+                text="Account"
+                height="64px"
+                color="secondary"
+                onClick={goToLogin}
+              />
+            ) : (
+              <CustomButton
+                text="Login"
+                height="64px"
+                color="secondary"
+                onClick={goToLogin}
+              />
+            )
+          }
         </div>
         <div className={styles.container_content_burger}>
           <CiMenuBurger size={40} />

@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+@import "../../topography/screens/screens";
+@import "../../topography/theme/colors";
+
 .container {
   height: 100%;
   width: 100%;
@@ -6,6 +10,12 @@
   justify-content: center;
   &_content {
     padding: 12px;
+    &_image {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
     &_name {
       color: var(--Red-900, #be0002);
       font-family: Montserrat;
@@ -48,4 +58,13 @@
   margin-bottom: 16px;
   margin-left: auto;
   margin-right: auto;
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    &_content {
+      padding: 12px;
+      &_name {
+      }
+    }
+  }
 }

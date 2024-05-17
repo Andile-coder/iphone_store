@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./home.module.scss";
 import NavBar from "../../components/navigation/NavBar";
@@ -8,21 +8,24 @@ import iphone14_promax_gold from "../../assets/phones/iphone14_promax_gold1 1.pn
 import iphone14_promax_spaceblack from "../../assets/phones/iphone14_promax_spaceblack1 1.png";
 import iphone14_plus_red1 from "../../assets/phones/iphone14_plus_red1 1.png";
 import iphone14_plus_purple1 from "../../assets/phones/iphone14_plus_purple1 1.png";
+import iphone11_front from "../../assets/phones/iphone11_white_front.jpeg";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
 import HomeBar from "../../components/homeBar/HomeBar";
 import PhoneCard from "../../components/cards/phoneCard/PhoneCard";
 import Footer from "../../components/footer/Footer";
-interface Props {}
-
-const Home: React.FC<Props> = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../../redux/actions/productsAction";
+const Home = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.products);
   const items = [
     {
       name: "iPhone 14 Pro Max",
       price: "R1099",
       space: "1TB",
       id: 1,
-      image: iphone14_promax_deep_purple,
+      image: iphone11_front,
     },
     {
       name: "iPhone 14 Pro Max",
@@ -88,6 +91,14 @@ const Home: React.FC<Props> = () => {
       image: iphone14_promax_spaceblack,
     },
   ];
+  // get products
+  useEffect(() => {
+    dispatch(getProducts());
+    alert(
+      "Hi, This website is still under construction. Some features may not work as expected. Thank you for your understanding."
+    );
+  }, []);
+
   return (
     <div style={{ overflow: "hidden" }}>
       <div className={styles.home_main}>
@@ -116,7 +127,11 @@ const Home: React.FC<Props> = () => {
                 in your hands in a click of a button.
               </span>
               <div className={styles.hero_container_desc_btn}>
-                <CustomButton text="Buy Now" height="64px" />
+                <CustomButton
+                  text="Buy Now"
+                  height="64px"
+                  onClick={() => navigate("/product/1")}
+                />
               </div>
             </div>
           </div>
@@ -131,13 +146,13 @@ const Home: React.FC<Props> = () => {
                 Latest Arrivals
               </span>
               <div className={styles.items_container_content_list}>
-                {items.map((item) => (
+                {products.map((item) => (
                   <PhoneCard
                     price={item.price}
                     name={item.name}
                     image={item.image}
                     space={item.space}
-                    id={item.id}
+                    id={item.product_id}
                     title={item.name}
                     link={`/product/${item.id}`}
                   />
@@ -162,13 +177,13 @@ const Home: React.FC<Props> = () => {
                 Most Popular
               </span>
               <div className={styles.items_container_content_list}>
-                {items.map((item) => (
+                {products.map((item) => (
                   <PhoneCard
                     price={item.price}
                     name={item.name}
                     image={item.image}
                     space={item.space}
-                    id={item.id}
+                    id={item.product_id}
                     title={item.name}
                     link={`/product/${item.id}`}
                   />

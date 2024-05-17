@@ -6,6 +6,7 @@ import IphoneBack from "../../assets/phones/iphone14_promax_deep_purple3 1.png";
 import IphoneFront from "../../assets/phones/iphone14_promax_deep_purple2 1.png";
 import IphoneBoth from "../../assets/phones/iphone14_promax_spaceblack1 1.png";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
+import Iphone11_front_white from "../../assets/phones/iphone11_white_front.jpeg";
 import { MdOutlineScreenshot } from "react-icons/md";
 import { MdOutlineCloudUpload } from "react-icons/md";
 import { MdBatteryChargingFull } from "react-icons/md";
@@ -32,7 +33,7 @@ const ProductDetails = () => {
           <div className={styles.container_content_cont}>
             <div className={styles.container_content_cont_img}>
               <div className={styles.container_content_cont_img_container}>
-                <img src={IphoneBoth} alt="" />
+                <img src={Iphone11_front_white} alt="" />
               </div>
               <div className={styles.container_content_cont_img_list}>
                 <SmallImage img={IphoneBoth} />

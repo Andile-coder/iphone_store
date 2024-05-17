@@ -3,6 +3,8 @@ import styles from "./customInput.module.scss";
 interface Props {
   text?: string;
   onClick?: () => void;
+  onChange?: () => void;
+  name?: string;
   size?: "small" | "medium" | "large";
   color?: "primary" | "secondary" | "tertiary";
   iconOnly?: boolean;
@@ -26,15 +28,16 @@ const CustomInput: React.FC<Props> = (props) => {
         className={styles.container_content}
         style={{ width: props.width, height: props.height }}
       >
-        <label htmlFor="this" className={styles.container_content_label}>
+        <label htmlFor={props.name} className={styles.container_content_label}>
           {props.label}
         </label>
         <input
-          name="this"
+          name={props.name}
           className={styles.container_content_input}
           style={{ width: props.width, height: props.height }}
           type={props.type}
           placeholder={props.placeholder}
+          onChange={props.onChange}
         />
       </div>
     </div>

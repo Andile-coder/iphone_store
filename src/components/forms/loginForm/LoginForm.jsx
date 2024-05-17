@@ -5,8 +5,30 @@ import CustomButton from "../../buttons/customButton/CustomButton";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { login } from "../../../../redux/actions/authAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const LoginForm = () => {
+  //login
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
+  const isLogged = useSelector((state) => state.auth.isLogged);
+  console.log(user);
+  console.log(isLogged);
+  // create a function to handle login
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log("login");
+    const user = {
+      username: "Jack1",
+      email: "jack2@exmple.com",
+      password: "6789",
+      phone: "123456789",
+      role: "user",
+    };
+    dispatch(login(user));
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.container_content}>
@@ -49,7 +71,7 @@ const LoginForm = () => {
             </span>
             <div className={styles.container_content_form_cont_or_line}></div>
           </div>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className={styles.container_content_form_cont_top}>
               <div className={styles.container_content_form_cont_top_input}>
                 <CustomInput

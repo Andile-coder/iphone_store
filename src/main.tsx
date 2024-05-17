@@ -16,7 +16,8 @@ import Profile from "./pages/account/profile/Profile.jsx";
 import PasswordUpdate from "./pages/account/passwordUpdate/PasswordUpdate.jsx";
 import CardDetails from "./pages/account/cardDetails/CardDetails.jsx";
 import AddressDetails from "./pages/account/addressDetails/AddressDetails.jsx";
-
+import { Provider } from "react-redux";
+import store from "../redux/store.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter(
@@ -107,5 +108,7 @@ const router = createBrowserRouter(
   { basename: "/" }
 );
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );
