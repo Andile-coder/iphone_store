@@ -1,32 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./loginForm.module.scss";
 import CustomInput from "../../inputs/customInput/CustomInput";
 import CustomButton from "../../buttons/customButton/CustomButton";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../../../redux/actions/authAction";
 import { useDispatch, useSelector } from "react-redux";
-
+import axios from "axios";
 const LoginForm = () => {
   //login
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
   const isLogged = useSelector((state) => state.auth.isLogged);
-  console.log(user);
-  console.log(isLogged);
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  // handle input change function
+  const handleInputChange = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
   // create a function to handle login
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("login");
-    const user = {
-      username: "Jack1",
-      email: "jack2@exmple.com",
-      password: "6789",
-      phone: "123456789",
-      role: "user",
-    };
-    dispatch(login(user));
+    const response = await dispatch(login(loginData));
+    response === 200 && navigate("/"); // go to home page if login is successful
   };
 
   return (
@@ -80,6 +82,8 @@ const LoginForm = () => {
                   label="Email"
                   height="100%"
                   width="100%"
+                  name="email"
+                  onChange={handleInputChange}
                 />
               </div>
               <div className={styles.container_content_form_cont_top_input}>
@@ -89,6 +93,8 @@ const LoginForm = () => {
                   label="Password"
                   height="100%"
                   width="100%"
+                  name="password"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>

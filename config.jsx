@@ -1,6 +1,6 @@
 // create a config file that has server configuration details
 import axios from "axios";
-const config = { baseURL: "http://localhost:3000/api" };
+const config = { baseURL: "http://localhost:3000/api", withCredentials: true };
 const axiosInstance = axios.create(config);
 
 export default axiosInstance;

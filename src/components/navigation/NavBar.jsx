@@ -7,7 +7,7 @@ import { CiMenuBurger } from "react-icons/ci";
 import logoName from "../../assets/ace_iphone_name2.png";
 import { BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-
+import axios from "axios";
 const NavBar = () => {
   const pages = [
     { name: "Home", path: "/" },
@@ -32,6 +32,20 @@ const NavBar = () => {
   const goToHome = () => {
     navigate("/");
   };
+  const goToAccount = () => {
+    navigate("/account/profile");
+  };
+
+  const getUser = async (e) => {
+    //upload image to the server
+    try {
+      const response = await axios.get("http://localhost:3000/api/auth/user");
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <nav className={styles.container_content}>
@@ -72,7 +86,7 @@ const NavBar = () => {
                 text="Account"
                 height="64px"
                 color="secondary"
-                onClick={goToLogin}
+                onClick={goToAccount}
               />
             ) : (
               <CustomButton
@@ -83,6 +97,7 @@ const NavBar = () => {
               />
             )
           }
+          <CustomButton text="Get User" height="64px" onClick={getUser} />
         </div>
         <div className={styles.container_content_burger}>
           <CiMenuBurger size={40} />

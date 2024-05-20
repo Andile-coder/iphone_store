@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Home from "./pages/home/Home.jsx";
 import Shop from "./pages/shop/Shop.jsx";
 import ContactUs from "./pages/contactUs/ContactUs.jsx";
-import PaymentDeatils from "./pages/paymentDetails/PaymentDetails";
+import PaymentDeatils from "./pages/paymentDetails/PaymentDetails.jsx";
 import DeliveryDetails from "./pages/deliveryDetails/DeliveryDetails.jsx";
 import ProductDetails from "./pages/productDetails/ProductDetails.jsx";
 import Cart from "./pages/cart/Cart.jsx";
@@ -11,7 +11,7 @@ import OrderDetails from "./pages/orderDetails/OrderDetails.jsx";
 import OrderHistory from "./pages/orderHistory/OrderHistory.jsx";
 import SignIn from "./pages/auth/signin/SignIn.jsx";
 import SignUp from "./pages/auth/signup/SignUp.jsx";
-import Account from "./pages/account/Account";
+import Account from "./pages/account/Account.jsx";
 import Profile from "./pages/account/profile/Profile.jsx";
 import PasswordUpdate from "./pages/account/passwordUpdate/PasswordUpdate.jsx";
 import CardDetails from "./pages/account/cardDetails/CardDetails.jsx";
@@ -19,7 +19,24 @@ import AddressDetails from "./pages/account/addressDetails/AddressDetails.jsx";
 import { Provider } from "react-redux";
 import store from "../redux/store.jsx";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+//create private router
+const PrivateRoute = ({ children }) => {
+  //check if user is authenticated
+  const user = useSelector((state: any) => state.auth.user);
+  const isLogged = useSelector((state: any) => state.auth.isLogged);
+  if (isLogged && Object.keys(user).length > 0) {
+    return children;
+  } else {
+    return <Navigate to="/signin" />;
+  }
+};
 const router = createBrowserRouter(
   [
     {
@@ -79,26 +96,31 @@ const router = createBrowserRouter(
     },
     {
       path: "/account",
-      element: <Account />,
+      element: (
+        <PrivateRoute>
+          <Account />
+        </PrivateRoute>
+      ),
       loader: () => Promise.resolve({}),
+
       children: [
         {
-          path: "account/profile",
+          path: "profile",
           element: <Profile />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "account/password",
+          path: "password",
           element: <PasswordUpdate />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "account/card_details",
+          path: "card_details",
           element: <CardDetails />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "account/addressdetails/",
+          path: "addressdetails/",
           element: <AddressDetails />,
           loader: () => Promise.resolve({}),
         },
@@ -107,6 +129,7 @@ const router = createBrowserRouter(
   ],
   { basename: "/" }
 );
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <RouterProvider router={router} />
