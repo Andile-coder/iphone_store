@@ -24,10 +24,10 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 //create private router
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   //check if user is authenticated
   const user = useSelector((state: any) => state.auth.user);
   const isLogged = useSelector((state: any) => state.auth.isLogged);
