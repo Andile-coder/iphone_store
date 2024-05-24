@@ -26,3 +26,30 @@ export const getProducts = () => {
     }
   };
 };
+
+// get product by id
+export const getProductById = (id) => {
+  return async (dispatch) => {
+    const handleGetProductById = async () => {
+      const response = await axiosInstance.get(`/products/${id}`, {
+        headers: { "Content-Type": "application/json" },
+      });
+      return response;
+    };
+
+    try {
+      const response = await handleGetProductById();
+
+      if (response.status === 200) {
+        const product = response.data;
+        console.log("product", product.product);
+        dispatch(productsActions.getProductById(product.product));
+        // dispatch(authActions.getUser(user));
+        // dispatch(authActions.login());
+      }
+      // dispatch(authActions.login());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

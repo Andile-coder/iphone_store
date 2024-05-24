@@ -15,6 +15,7 @@ import PhoneCard from "../../components/cards/phoneCard/PhoneCard";
 import Footer from "../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../redux/actions/productsAction";
+import { getUser } from "../../../redux/actions/authAction";
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -91,12 +92,22 @@ const Home = () => {
       image: iphone14_promax_spaceblack,
     },
   ];
+
+  const getUserHandler = async () => {
+    const response = await dispatch(getUser());
+    return response;
+  };
   // get products
   useEffect(() => {
+    // when page loads to the following
+    // get products
     dispatch(getProducts());
+    // alert user that the website is under construction
     alert(
       "Hi, This website is still under construction. Some features may not work as expected. Thank you for your understanding."
     );
+    // update user state if logged in
+    getUserHandler();
   }, []);
 
   return (
@@ -154,7 +165,7 @@ const Home = () => {
                     space={item.space}
                     id={item.product_id}
                     title={item.name}
-                    link={`/product/${item.id}`}
+                    link={`/product/${item.product_id}`}
                   />
                 ))}
               </div>

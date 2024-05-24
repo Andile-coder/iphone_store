@@ -2,14 +2,35 @@ import React from "react";
 import styles from "./listCard.module.scss";
 import { MdCancel } from "react-icons/md";
 import { FaCirclePlus, FaCircleMinus } from "react-icons/fa6";
-const ListCard = ({ img, quantity, price, name, space, color, hasIcon }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../../../redux/actions/cartAction";
+
+const ListCard = ({
+  img,
+  quantity,
+  price,
+  name,
+  space,
+  color,
+  hasIcon,
+  item,
+}) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const removeFromCartHandler = async () => {
+    await dispatch(removeFromCart(item));
+  };
   return (
     <div className={styles.container}>
       <div className={styles.container_content}>
         <div className={styles.container_content_left}>
           {hasIcon && (
             <div className={styles.container_content_left_delete}>
-              <MdCancel color="#be0002" cursor="pointer" />
+              <MdCancel
+                color="#be0002"
+                cursor="pointer"
+                onClick={() => removeFromCartHandler(item)}
+              />
             </div>
           )}
           <div className={styles.container_content_left_img}>

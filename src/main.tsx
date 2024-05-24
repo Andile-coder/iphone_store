@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-
+import React, { useEffect, useState } from "react";
 import Home from "./pages/home/Home.jsx";
 import Shop from "./pages/shop/Shop.jsx";
 import ContactUs from "./pages/contactUs/ContactUs.jsx";
@@ -24,19 +24,39 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { getUser } from "../redux/actions/authAction.jsx";
+import { Dispatch } from "redux";
 //create private router
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
-  //check if user is authenticated
-  const user = useSelector((state: any) => state.auth.user);
+  const [loading, setLoading] = useState(true);
+  const dispatch: Dispatch<any> = useDispatch();
   const isLogged = useSelector((state: any) => state.auth.isLogged);
-  if (isLogged && Object.keys(user).length > 0) {
-    return children;
+
+  useEffect(() => {
+    const checkUser = async () => {
+      await dispatch(getUser());
+      setLoading(false);
+    };
+    checkUser();
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isLogged) {
+    return <>{children}</>;
   } else {
     return <Navigate to="/signin" />;
   }
 };
+
+// const loader = async () => {
+//   const dispatch: Dispatch<any> = useDispatch();
+//   const response = await dispatch(getUser());
+//   return response;
+// };
 const router = createBrowserRouter(
   [
     {
@@ -66,7 +86,11 @@ const router = createBrowserRouter(
     },
     {
       path: "/checkout/payment/:id",
-      element: <PaymentDeatils />,
+      element: (
+        <PrivateRoute>
+          <PaymentDeatils />
+        </PrivateRoute>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
@@ -91,7 +115,11 @@ const router = createBrowserRouter(
     },
     {
       path: "/history/",
-      element: <OrderHistory />,
+      element: (
+        <PrivateRoute>
+          <OrderHistory />
+        </PrivateRoute>
+      ),
       loader: () => Promise.resolve({}),
     },
     {

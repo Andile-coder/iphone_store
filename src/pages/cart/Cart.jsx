@@ -6,9 +6,12 @@ import Footer from "../../components/footer/Footer";
 import ListCard from "../../components/cards/listCard/ListCard";
 import Images from "../../components/images/Images";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const goToCheckout = (id) => {
     navigate(`/checkout/delivery/${id}`);
   };
@@ -63,12 +66,13 @@ const Cart = () => {
           <div className={styles.container_content_cont}>
             <div className={styles.container_content_cont_list}>
               <div className={styles.container_content_cont_list_items}>
-                {items.map((item) => (
+                {cartItems?.map((item) => (
                   <div
                     className={styles.container_content_cont_list_items}
                     style={{ marginBottom: "20px" }}
                   >
                     <ListCard
+                      item={item}
                       name={item.name}
                       price={item.price}
                       img={item.image}

@@ -5,6 +5,9 @@ import Footer from "../../components/footer/Footer";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
 import ListCard from "../../components/cards/listCard/ListCard";
 import Images from "../../components/images/Images";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../../redux/actions/authAction";
 const OrderDetails = () => {
   const items = [
     {
@@ -43,6 +46,16 @@ const OrderDetails = () => {
       image: Images[0],
     },
   ];
+  const dispatch = useDispatch();
+  const getUserHandler = async () => {
+    const response = await dispatch(getUser());
+    return response;
+  };
+  // get products
+  useEffect(() => {
+    // update user state if logged in
+    getUserHandler();
+  }, []);
   return (
     <div style={{ overflow: "hidden" }}>
       <div className={styles.container}>

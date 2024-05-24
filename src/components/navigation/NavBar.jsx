@@ -7,6 +7,8 @@ import { CiMenuBurger } from "react-icons/ci";
 import logoName from "../../assets/ace_iphone_name2.png";
 import { BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../../redux/slices/authSlice";
+import { getUser, logout } from "../../../redux/actions/authAction";
 import axios from "axios";
 const NavBar = () => {
   const pages = [
@@ -18,9 +20,10 @@ const NavBar = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.user);
   const isLogged = useSelector((state) => state.auth.isLogged);
+  const cartCount = useSelector((state) => state.cart.count);
+  const dispatch = useDispatch();
 
   const handleActive = (index) => {
-    console.log(index);
     setActive(index);
   };
   const goToCart = () => {
@@ -36,14 +39,16 @@ const NavBar = () => {
     navigate("/account/profile");
   };
 
-  const getUser = async (e) => {
+  const getUserHandler = async () => {
     //upload image to the server
-    try {
-      const response = await axios.get("http://localhost:3000/api/auth/user");
-      console.log(response.data);
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
+    // try {
+    //   const response = await axios.get("http://localhost:3000/api/auth/user");
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.error("Error uploading image:", error);
+    // }
+    const response = await dispatch(logout());
+    console.log(response);
   };
 
   return (
@@ -72,13 +77,19 @@ const NavBar = () => {
         </div>
         <div className={styles.container_content_btns}>
           {/* <CustomButton text="Cart" height="64px" onClick={goToCart} /> */}
-
           <div className={styles.container_content_btns_cart}>
-            <Link to="/cart" style={{ color: "#151313" }}>
-              <BsCart3 size={34} />
+            <Link
+              to="/cart"
+              style={{
+                color: "#151313",
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <BsCart3 size={34} /> <span>{cartCount}</span>
             </Link>
           </div>
-
           {
             // if user is logged in, show user name
             isLogged ? (
@@ -97,7 +108,11 @@ const NavBar = () => {
               />
             )
           }
-          <CustomButton text="Get User" height="64px" onClick={getUser} />
+          {/* <CustomButton
+            text="Get User"
+            height="64px"
+            onClick={getUserHandler}
+          /> */}
         </div>
         <div className={styles.container_content_burger}>
           <CiMenuBurger size={40} />

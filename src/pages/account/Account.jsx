@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./account.module.scss";
 import NavBar from "../../components/navigation/NavBar";
 import user from "../../assets/user.jpg";
@@ -8,6 +8,8 @@ import Footer from "./../../components/footer/Footer";
 import { AiOutlineUser } from "react-icons/ai";
 import { MdLockOutline } from "react-icons/md";
 import { HiOutlineHome } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../redux/actions/authAction";
 const Account = () => {
   const [pages, setPages] = useState([
     {
@@ -39,6 +41,8 @@ const Account = () => {
     // },
   ]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
 
   const goTo = (path, index) => {
     navigate(path);
@@ -50,6 +54,14 @@ const Account = () => {
     });
     setPages(copyPages);
   };
+  const getUserHandler = async () => {
+    const response = await dispatch(getUser());
+    return response;
+  };
+  useEffect(() => {
+    console.log("account page");
+    // getUserHandler();
+  }, []);
   return (
     <div>
       <div className={styles.container}>
@@ -62,8 +74,10 @@ const Account = () => {
                   <img src={user} alt="user profile" />
                 </div>
                 <div className={styles.container_content_cont_nav_user_text}>
-                  <span>johndoe@gmail.com</span>
-                  <h2>John Doe</h2>
+                  <span>{user.email}</span>
+                  <h2>
+                    {user.first_name} {user.last_name}
+                  </h2>
                 </div>
               </div>
               <div className={styles.container_content_cont_nav_items}>

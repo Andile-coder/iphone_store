@@ -6,8 +6,8 @@ export const login = (user) => {
     const handleLogin = async () => {
       const response = await axiosInstance.post("/auth/login", user, {
         headers: {
-          "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
         },
       });
       return response;
@@ -44,12 +44,7 @@ export const register = (user) => {
 
     try {
       const response = await handleRegister(user);
-      console.log(response);
-      if (response.status === 200) {
-        const user = response.data;
-        // dispatch(authActions.getUser(user));
-      }
-      dispatch(authActions.login());
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -62,11 +57,10 @@ export const getUser = () => {
     const handleGetUser = async () => {
       const response = await axiosInstance.get("/auth/user", {
         headers: {
-          "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
         },
       });
-      console.log(response.data);
       return response;
     };
 
@@ -75,6 +69,32 @@ export const getUser = () => {
       if (response.status === 200) {
         const user = response.data;
         dispatch(authActions.getUser(user));
+        dispatch(authActions.login());
+        return response;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+// logout
+export const logout = () => {
+  return async (dispatch) => {
+    const handleLogout = async () => {
+      const response = await axiosInstance.post("/auth/logout", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+      return response;
+    };
+
+    try {
+      const response = await handleLogout();
+      if (response.status === 200) {
+        dispatch(authActions.logout());
       }
     } catch (error) {
       console.log(error);

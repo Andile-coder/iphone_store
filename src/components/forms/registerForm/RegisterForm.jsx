@@ -4,13 +4,14 @@ import CustomInput from "../../inputs/customInput/CustomInput";
 import CustomButton from "../../buttons/customButton/CustomButton";
 import { FaFacebook } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../../../redux/actions/authAction";
 import { useDispatch, useSelector } from "react-redux";
 const RegisterForm = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState({ phone: "07123445678", role: "user" }); // [1]
   const isLogged = useSelector((state) => state.auth.isLogged);
+  const navigate = useNavigate();
 
   // create function to handle onChange
   const handleChange = (e) => {
@@ -19,18 +20,18 @@ const RegisterForm = () => {
   };
   // create a function to handle login
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(user);
-    console.log("register");
-    const tempUser = {
-      username: "Jack0",
-      email: "jack4@exmple.com",
-      password: "6789",
-      phone: "123456789",
-      role: "user",
-    };
-    dispatch(register(user));
+
+    // check if password and confirm password match
+    if (user.password !== user.confirmPassword) {
+      console.log("passwords do not match");
+      return;
+    } else {
+      const response = await dispatch(register(user));
+      console.log("response status", response.status);
+      response.status == 201 ? navigate("/signin") : console.log("error");
+    }
   };
   return (
     <div className={styles.container}>
@@ -79,11 +80,36 @@ const RegisterForm = () => {
               <div className={styles.container_content_form_cont_top_input}>
                 <CustomInput
                   type="text"
-                  name="username"
-                  placeholder="Name"
-                  label="Full Name"
+                  name="first_name"
+                  placeholder="First Name"
+                  label="First Name"
                   height="100%"
                   width="100%"
+                  required={true}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.container_content_form_cont_top_input}>
+                <CustomInput
+                  type="text"
+                  name="last_name"
+                  placeholder="Last Name"
+                  label="Last Name"
+                  height="100%"
+                  width="100%"
+                  required={true}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.container_content_form_cont_top_input}>
+                <CustomInput
+                  type="text"
+                  name="username"
+                  placeholder="Name"
+                  label="Username"
+                  height="100%"
+                  width="100%"
+                  required={true}
                   onChange={handleChange}
                 />
               </div>
@@ -95,6 +121,7 @@ const RegisterForm = () => {
                   label="Email"
                   height="100%"
                   width="100%"
+                  required={true}
                   onChange={(e) => handleChange(e)}
                 />
               </div>
@@ -106,6 +133,7 @@ const RegisterForm = () => {
                   label="Password"
                   height="100%"
                   width="100%"
+                  required={true}
                   onChange={(e) => handleChange(e)}
                 />
               </div>
@@ -117,6 +145,7 @@ const RegisterForm = () => {
                   label="Confirm Password"
                   height="100%"
                   width="100%"
+                  required={true}
                   onChange={(e) => handleChange(e)}
                 />
               </div>

@@ -83,6 +83,7 @@ const LoginForm = () => {
                   height="100%"
                   width="100%"
                   name="email"
+                  required={true}
                   onChange={handleInputChange}
                 />
               </div>
@@ -94,6 +95,7 @@ const LoginForm = () => {
                   height="100%"
                   width="100%"
                   name="password"
+                  required={true}
                   onChange={handleInputChange}
                 />
               </div>

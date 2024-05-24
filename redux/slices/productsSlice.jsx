@@ -5,10 +5,14 @@ const productsSlice = createSlice({
   name: "products",
   initialState: {
     products: [],
+    product: {},
   },
   reducers: {
     getProducts: (state, action) => {
       state.products = action.payload;
+    },
+    getProductById: (state, action) => {
+      state.product = action.payload;
     },
   },
 });
