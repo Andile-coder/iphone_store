@@ -61,6 +61,29 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 16px;
+      &_cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: $primary-color;
+        & > a {
+          display: flex;
+          align-items: center;
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          text-decoration: none;
+          color: $primary-color;
+        }
+      }
+      &_dropdown {
+        position: relative;
+        background-color: yellow;
+        width: 300px;
+      }
     }
     &_burger {
       display: none;

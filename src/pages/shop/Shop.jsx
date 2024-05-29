@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./shop.module.scss";
 import NavBar from "../../components/navigation/NavBar";
 import iphone14_promax_deep_purple from "../../assets/phones/iphone14_promax_deep_purple1 1.png";
@@ -12,9 +12,15 @@ import Footer from "../../components/footer/Footer";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import PhoneCard from "../../components/cards/phoneCard/PhoneCard";
+import PrimaryDropdown from "../../components/dropdowns/primaryDropdown/PrimaryDropdown";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../../redux/actions/productsAction";
+import { getUser } from "../../../redux/actions/authAction";
+
 const Shop = () => {
-  const [show, setShow] = React.useState(false);
-  const [itemOffset, setItemOffset] = React.useState(0);
+  const [show, setShow] = useState(false);
+  const [itemOffset, setItemOffset] = useState(0);
+  const dispatch = useDispatch();
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -124,7 +130,18 @@ const Shop = () => {
       path: "/low-selling",
     },
   ];
-
+  const getUserHandler = async () => {
+    const response = await dispatch(getUser());
+    return response;
+  };
+  // get products
+  useEffect(() => {
+    // when page loads to the following
+    // get products
+    dispatch(getProducts());
+    // update user state if logged in
+    getUserHandler();
+  }, []);
   return (
     <div style={{ overflow: "hidden" }}>
       <div className={styles.container}>
@@ -149,7 +166,7 @@ const Shop = () => {
                 <CiSearch size={34} color="#fff" cursor="pointer" />
               </div>
             </div>
-            <div
+            {/* <div
               className={styles.container_content_filters_dropdown_container}
             >
               <span>Sort by: </span>
@@ -196,7 +213,8 @@ const Shop = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
+            <PrimaryDropdown dropDownItems={dropDownItems} label="Sort By: " />
           </div>
           <div className={styles.container_content_cards}>
             {currentItems.map((item) => (

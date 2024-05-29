@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+@import "../../topography/screens/screens";
+@import "../../topography/theme/colors";
+.container {
+  padding: 0px 128px;
+  &_content {
+    &_cont {
+      margin: 49px auto 293px auto;
+      display: grid;
+      grid-template-columns: 0.95fr 0.01fr 0.05fr;
+      column-gap: 3rem;
+      &_pricing_cont {
+        width: 281px;
+        &_summary {
+          &_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            span {
+              color: #000;
+              font-family: Montserrat;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+            }
+            &_subtotal {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 48px;
+              span {
+                color: #000;
+                font-family: Montserrat;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+              }
+            }
+          }
+        }
+        .hr {
+          border: 1px solid #be0002;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          margin-top: 16px;
+          margin-bottom: 16px;
+        }
+      }
+      &_divider {
+        height: 100%;
+        background-color: #be0002;
+        width: 1.5px;
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    &_content_cont {
+      &_pricing_cont {
+        margin: 0px !important;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import authSlice, { authActions } from "../slices/authSlice";
 import axiosInstance from "../../config";
 import { json } from "react-router-dom";
+import { cloudinaryActions } from "../slices/cloudinarySlice";
+import { alertActions } from "../slices/alertSlice";
 export const login = (user) => {
   return async (dispatch) => {
     const handleLogin = async () => {
@@ -10,6 +12,7 @@ export const login = (user) => {
           "Content-Type": "application/json",
         },
       });
+
       return response;
     };
 
@@ -19,11 +22,21 @@ export const login = (user) => {
         const user = response.data;
         dispatch(authActions.getUser(user));
         dispatch(authActions.login());
+        dispatch(
+          alertActions.setAlert({
+            message: "Login successfully",
+            type: "success",
+          })
+        );
       }
-      dispatch(authActions.login());
       return response.status;
     } catch (error) {
-      console.log(error);
+      dispatch(
+        alertActions.setAlert({
+          message: error.response.data.message,
+          type: "error",
+        })
+      );
       return 401;
     }
   };
@@ -70,6 +83,7 @@ export const getUser = () => {
         const user = response.data;
         dispatch(authActions.getUser(user));
         dispatch(authActions.login());
+        // get user profile image
         return response;
       }
     } catch (error) {
@@ -98,6 +112,45 @@ export const logout = () => {
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+};
+
+// reset password
+export const resetPassword = (user) => {
+  return async (dispatch) => {
+    const handleResetPassword = async () => {
+      const response = await axiosInstance.put(
+        "/auth/user/reset_password",
+        user,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return response;
+    };
+
+    try {
+      const response = await handleResetPassword(user);
+      if (response.status === 201) {
+        dispatch(
+          alertActions.setAlert({
+            message: "Password reset successfully",
+            type: "success",
+          })
+        );
+      }
+      return response;
+    } catch (error) {
+      dispatch(
+        alertActions.setAlert({
+          message: error.response.data.message,
+          type: "error",
+        })
+      );
     }
   };
 };

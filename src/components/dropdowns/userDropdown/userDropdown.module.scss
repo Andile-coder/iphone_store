@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&family=Montserrat&family=Roboto:wght@500&display=swap");
+@import "../../topography/screens/screens";
+@import "../../topography/theme/colors";
+
+.container {
+  z-index: 1000 !important;
+  cursor: pointer;
+  &_content {
+    &_filters {
+      margin-top: 90px;
+      display: flex;
+      justify-content: space-between;
+      &_search {
+        display: flex;
+        align-items: center;
+        &_input {
+          input {
+            border: 2px solid var(--Red-900, #be0002);
+
+            display: flex;
+            width: 301px;
+            height: 52px;
+            padding: 0px 0px;
+            align-items: center;
+            border-right: none;
+            padding: 0px 20px;
+          }
+          input:focus {
+            border: 2px solid var(--Red-900, #be0002);
+            outline: none;
+          }
+          input::placeholder {
+            color: var(--Red-90, rgba(190, 0, 2, 0.9));
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+        &_icon {
+          display: flex;
+          width: 52px;
+          height: 47.2px;
+          padding: 4px;
+          justify-content: center;
+          align-items: center;
+
+          background: var(--Red-900, #be0002);
+        }
+      }
+      &_dropdown_container {
+        display: flex;
+        align-items: center;
+        font-family: Montserrat;
+        & > span {
+          color: var(--Red-900, #be0002);
+          font-family: Montserrat;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-right: 16px;
+        }
+
+        &_cont {
+          display: inline-block;
+          &_picked {
+            color: #fffdfd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 52px;
+            width: 238px;
+            padding: 0px 16px;
+            background: var(--Red-900, #be0002);
+            &_img {
+              width: 34px;
+              height: 34px;
+              border-radius: 50%;
+              img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
+            }
+          }
+          &_list {
+            display: none;
+            position: absolute;
+            background: var(--Red-900, #fffdfd);
+            min-width: 160px;
+            width: 270px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            &_item {
+              color: #be0002;
+              padding: 12px 16px;
+              text-decoration: none;
+              display: block;
+              &:hover {
+                background-color: #be0002;
+                color: #fffdfd;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .container {
+    &_content {
+      &_filters {
+        &_dropdown_container {
+          flex-direction: column;
+          row-gap: 20px;
+          &_cont {
+            width: 100%;
+            &_picked {
+              width: 100%;
+            }
+            &_list {
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

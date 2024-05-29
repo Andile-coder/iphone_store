@@ -10,28 +10,48 @@ import { MdLockOutline } from "react-icons/md";
 import { HiOutlineHome } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../redux/actions/authAction";
+import { getImageByTag } from "../../../redux/actions/cloudinaryActions";
+import { IoMdLogOut } from "react-icons/io";
+import { FaDropbox } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 const Account = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.user);
+  const params = useParams();
+  const { id } = params;
+
+  let [profilePicUrl, setProfilePicUrl] = useState("");
+  const imagePath = useSelector((state) => state.cloudinary.imagePath);
+
   const [pages, setPages] = useState([
     {
-      path: "account/profile",
+      path: `profile/${id}`,
       name: "Profile",
       index: 0,
       active: true,
       icon: <AiOutlineUser size={34} />,
     },
     {
-      path: "account/password",
+      path: `password/${id}`,
       name: "Password",
       index: 1,
       active: false,
       icon: <MdLockOutline size={34} />,
     },
     {
-      path: "account/addressdetails",
+      path: `address_details/${id}`,
       name: "Address Details",
       index: 2,
       active: false,
       icon: <HiOutlineHome size={34} />,
+    },
+    {
+      path: `history`,
+      name: "Orders",
+      index: 3,
+      active: false,
+      icon: <FaDropbox size={34} />,
     },
     // {
     //   path: "account/carddetails",
@@ -40,9 +60,6 @@ const Account = () => {
     //   active: false,
     // },
   ]);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.user);
 
   const goTo = (path, index) => {
     navigate(path);
@@ -54,14 +71,19 @@ const Account = () => {
     });
     setPages(copyPages);
   };
-  const getUserHandler = async () => {
-    const response = await dispatch(getUser());
+  // const getUserHandler = async () => {
+  //   const response = await dispatch(getUser());
+  //   return response;
+  // };
+  const getUserProfileImageHandler = async () => {
+    const response = await dispatch(getImageByTag(id));
     return response;
   };
   useEffect(() => {
-    console.log("account page");
     // getUserHandler();
+    getUserProfileImageHandler();
   }, []);
+
   return (
     <div>
       <div className={styles.container}>
@@ -71,7 +93,7 @@ const Account = () => {
             <div className={styles.container_content_cont_nav}>
               <div className={styles.container_content_cont_nav_user}>
                 <div className={styles.container_content_cont_nav_user_img}>
-                  <img src={user} alt="user profile" />
+                  <img src={imagePath} alt="user profile" />
                 </div>
                 <div className={styles.container_content_cont_nav_user_text}>
                   <span>{user.email}</span>

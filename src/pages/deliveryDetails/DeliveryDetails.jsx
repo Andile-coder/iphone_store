@@ -4,10 +4,14 @@ import NavBar from "../../components/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 import CustomInput from "../../components/inputs/customInput/CustomInput";
+import PriceSummaryCard from "../../components/cards/priceSummaryCard/PriceSummaryCard";
 const DeliveryDetails = () => {
   const navigate = useNavigate();
+  const cartActions = useSelector((state) => state.cart.cartItems);
+  const cartTotalprice = useSelector((state) => state.cart.total);
+  const cartTotalItems = useSelector((state) => state.cart.count);
   const goToPayment = (id) => {
     navigate(`/checkout/payment/${id}`);
   };
@@ -103,7 +107,7 @@ const DeliveryDetails = () => {
               </form>
             </div>
             <div className={styles.container_content_cont_divider}></div>
-            <PricingContainer onClick={() => goToPayment("123")} />
+            <PriceSummaryCard onClick={() => goToPayment("123")} />
           </div>
         </div>
       </div>
@@ -113,46 +117,3 @@ const DeliveryDetails = () => {
 };
 
 export default DeliveryDetails;
-const PricingContainer = ({ onClick }) => {
-  return (
-    <div className={styles.container_content_cont_pricing}>
-      <div className={styles.container_content_cont_pricing_cont}>
-        <div className={styles.container_content_cont_pricing_cont_summary}>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Delivery</span>
-            <span>R60</span>
-          </div>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Total Items</span>
-            <span>12</span>
-          </div>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Total</span>
-            <span>R68964</span>
-          </div>
-        </div>
-        <hr className={styles.hr} />
-        <div
-          className={
-            styles.container_content_cont_pricing_cont_summary_item_subtotal
-          }
-        >
-          <span>Subtotal</span>
-          <span>R68964</span>
-        </div>
-        <CustomButton
-          text="Payment"
-          height="56px"
-          onClick={onClick}
-          width="100%"
-        />
-      </div>
-    </div>
-  );
-};

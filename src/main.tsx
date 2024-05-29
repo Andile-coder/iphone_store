@@ -27,6 +27,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../redux/actions/authAction.jsx";
 import { Dispatch } from "redux";
+import Orders from "./pages/orders/Orders.jsx";
+import App from "./App.jsx";
 //create private router
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
@@ -61,96 +63,147 @@ const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <Home />,
+      element: (
+        <App>
+          <Home />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/signin",
-      element: <SignIn />,
+      element: (
+        <App>
+          <SignIn />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/signup",
-      element: <SignUp />,
+      element: (
+        <App>
+          <SignUp />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/shop",
-      element: <Shop />,
+      element: (
+        <App>
+          <Shop />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/contact",
-      element: <ContactUs />,
+      element: (
+        <App>
+          <ContactUs />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/checkout/payment/:id",
       element: (
-        <PrivateRoute>
-          <PaymentDeatils />
-        </PrivateRoute>
+        <App>
+          <PrivateRoute>
+            <PaymentDeatils />
+          </PrivateRoute>
+        </App>
       ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/checkout/delivery/:id",
-      element: <DeliveryDetails />,
+      element: (
+        <App>
+          <PaymentDeatils />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/product/:id",
-      element: <ProductDetails />,
+      element: (
+        <App>
+          <ProductDetails />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/cart",
-      element: <Cart />,
+      element: (
+        <App>
+          <Cart />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/order/:id",
-      element: <OrderDetails />,
+      element: (
+        <App>
+          <OrderDetails />
+        </App>
+      ),
       loader: () => Promise.resolve({}),
     },
     {
-      path: "/history/",
+      path: "/history",
       element: (
-        <PrivateRoute>
-          <OrderHistory />
-        </PrivateRoute>
+        <App>
+          <PrivateRoute>
+            <OrderHistory />
+          </PrivateRoute>
+        </App>
       ),
       loader: () => Promise.resolve({}),
     },
     {
       path: "/account",
       element: (
-        <PrivateRoute>
-          <Account />
-        </PrivateRoute>
+        <App>
+          <PrivateRoute>
+            <Account />
+          </PrivateRoute>
+        </App>
       ),
       loader: () => Promise.resolve({}),
 
       children: [
         {
-          path: "profile",
+          path: "profile/:id",
           element: <Profile />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "password",
+          path: "password/:id",
           element: <PasswordUpdate />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "card_details",
+          path: "card_details/:id",
           element: <CardDetails />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "addressdetails/",
+          path: "address_details/:id",
           element: <AddressDetails />,
           loader: () => Promise.resolve({}),
+        },
+        {
+          path: "history",
+          element: <Orders />,
+          loader: () => Promise.resolve({}),
+        },
+        {
+          path: "*",
+          element: <Navigate to="/account/profile/:id" />,
         },
       ],
     },

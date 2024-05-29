@@ -35,11 +35,22 @@ const ProductDetails = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [productOnCart, setProductOnCart] = useState(false);
   const { id } = useParams();
+  const [text, setText] = useState("Add to Cart");
+  const [clicked, setClicked] = useState(false);
   const list = [0];
 
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
+
+  const handleClick = () => {
+    setClicked(true);
+    setText("Added to Cart");
+    setTimeout(() => {
+      setText("Add to Cart");
+      setClicked(false);
+    }, 5000);
+  };
 
   useEffect(() => {
     if (cartItems.find((item) => item.product_id === product.product_id)) {
@@ -50,12 +61,14 @@ const ProductDetails = () => {
   }, [cartItems, product]);
 
   const addToCartHandler = async () => {
+    handleClick();
     await dispatch(addToCart(product));
   };
 
   const removeFromCartHandler = async () => {
     await dispatch(removeFromCart(product));
   };
+  //when button clicked change text for 5 seconds from add to cart to added to cart
 
   return (
     <div style={{ overflow: "hidden" }}>
@@ -90,6 +103,7 @@ const ProductDetails = () => {
                 product={product}
                 productOnCart={productOnCart}
                 addToCartHandler={addToCartHandler}
+                buttonText={text}
                 removeFromCartHandler={removeFromCartHandler}
               />
             </div>
@@ -115,50 +129,53 @@ const ExtraInfoContainer = ({
   productOnCart,
   addToCartHandler,
   removeFromCartHandler,
-}) => (
-  <div className={styles.container_content_cont_info_cont}>
-    <div className={styles.container_content_cont_info_cont_summary}>
-      {extraInfo.map((item, index) => (
-        <div
-          className={styles.container_content_cont_info_cont_summary_item}
-          key={index}
-        >
-          {item.icon}
-          <span>{item.title}</span>
-        </div>
-      ))}
-    </div>
-    <div
-      className={styles.container_content_cont_info_cont_summary_item_blocks}
-    >
-      <BlockColor color="#2F2828" />
-      <BlockColor color="#FFD700" />
-      <BlockColor color="#800080" />
-    </div>
-    <div
-      className={styles.container_content_cont_info_cont_summary_item_subtotal}
-    >
-      <span>R{product.price}</span>
-    </div>
-    <div className={styles.container_content_cont_info_cont_summary_item_btn}>
-      {productOnCart ? (
-        <CustomButton
+  buttonText,
+}) => {
+  return (
+    <div className={styles.container_content_cont_info_cont}>
+      <div className={styles.container_content_cont_info_cont_summary}>
+        {extraInfo.map((item, index) => (
+          <div
+            className={styles.container_content_cont_info_cont_summary_item}
+            key={index}
+          >
+            {item.icon}
+            <span>{item.title}</span>
+          </div>
+        ))}
+      </div>
+      <div
+        className={styles.container_content_cont_info_cont_summary_item_blocks}
+      >
+        <BlockColor color="#2F2828" />
+        <BlockColor color="#FFD700" />
+        <BlockColor color="#800080" />
+      </div>
+      <div
+        className={
+          styles.container_content_cont_info_cont_summary_item_subtotal
+        }
+      >
+        <span>R{product.price}</span>
+      </div>
+      <div className={styles.container_content_cont_info_cont_summary_item_btn}>
+        {/* <CustomButton
           text="Remove from Cart"
           height="56px"
           className="active"
           onClick={() => removeFromCartHandler(product)}
-        />
-      ) : (
+        /> */}
+
         <CustomButton
-          text="Add to Cart"
+          text={buttonText}
           height="56px"
           className="active"
           onClick={() => addToCartHandler(product)}
         />
-      )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const BlockColor = ({ color }) => (
   <div className={styles.blockContainer}>

@@ -7,51 +7,54 @@ import ListCard from "../../components/cards/listCard/ListCard";
 import Images from "../../components/images/Images";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import PriceSummaryCard from "../../components/cards/priceSummaryCard/PriceSummaryCard";
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartTotalprice = useSelector((state) => state.cart.total);
+  const totalItems = useSelector((state) => state.cart.count);
   const goToCheckout = (id) => {
     navigate(`/checkout/delivery/${id}`);
   };
-  const items = [
-    {
-      name: "iPhone 14 Pro Max",
-      price: "R1099",
-      space: "1TB",
-      quantity: "3",
-      image: Images[0],
-    },
-    {
-      name: "iPhone 14 Pro Max",
-      price: "R1099",
-      space: "1TB",
-      quantity: "3",
-      image: Images[1],
-    },
-    {
-      name: "iPhone 14 Pro Max",
-      price: "R1099",
-      space: "1TB",
-      quantity: "3",
-      image: Images[0],
-    },
-    {
-      name: "iPhone 14 Pro Max",
-      price: "R1099",
-      space: "1TB",
-      quantity: "3",
-      image: Images[0],
-    },
-    {
-      name: "iPhone 14 Pro Max",
-      price: "R1099",
-      space: "1TB",
-      quantity: "3",
-      image: Images[0],
-    },
-  ];
+  // const items = [
+  //   {
+  //     name: "iPhone 14 Pro Max",
+  //     price: "R1099",
+  //     space: "1TB",
+  //     quantity: "3",
+  //     image: Images[0],
+  //   },
+  //   {
+  //     name: "iPhone 14 Pro Max",
+  //     price: "R1099",
+  //     space: "1TB",
+  //     quantity: "3",
+  //     image: Images[1],
+  //   },
+  //   {
+  //     name: "iPhone 14 Pro Max",
+  //     price: "R1099",
+  //     space: "1TB",
+  //     quantity: "3",
+  //     image: Images[0],
+  //   },
+  //   {
+  //     name: "iPhone 14 Pro Max",
+  //     price: "R1099",
+  //     space: "1TB",
+  //     quantity: "3",
+  //     image: Images[0],
+  //   },
+  //   {
+  //     name: "iPhone 14 Pro Max",
+  //     price: "R1099",
+  //     space: "1TB",
+  //     quantity: "3",
+  //     image: Images[0],
+  //   },
+  // ];
 
   return (
     <div>
@@ -78,14 +81,14 @@ const Cart = () => {
                       img={item.image}
                       space={item.space}
                       hasIcon={true}
-                      quantity={item.quantity}
+                      quantity={item.order_quantity}
                     />
                   </div>
                 ))}
               </div>
             </div>
             <div className={styles.container_content_cont_divider}></div>
-            <PricingContainer onClick={() => goToCheckout("123")} />
+            <PriceSummaryCard onClick={() => goToCheckout("123")} />
           </div>
         </div>
       </div>
@@ -95,47 +98,3 @@ const Cart = () => {
 };
 
 export default Cart;
-const PricingContainer = ({ onClick }) => {
-  return (
-    <div className={styles.container_content_cont_pricing}>
-      <div className={styles.container_content_cont_pricing_cont}>
-        <div className={styles.container_content_cont_pricing_cont_summary}>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Delivery</span>
-            <span>R60</span>
-          </div>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Total Items</span>
-            <span>12</span>
-          </div>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Total</span>
-            <span>R68964</span>
-          </div>
-        </div>
-        <hr className={styles.hr} />
-        <div
-          className={
-            styles.container_content_cont_pricing_cont_summary_item_subtotal
-          }
-        >
-          <span>Subtotal</span>
-          <span>R68964</span>
-        </div>
-        <CustomButton
-          text="Checkout"
-          height="56px"
-          className="active"
-          width="100%"
-          onClick={onClick}
-        />
-      </div>
-    </div>
-  );
-};

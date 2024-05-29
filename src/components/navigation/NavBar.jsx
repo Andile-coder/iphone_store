@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./navbar.module.scss";
 import CustomButton from "../buttons/customButton/CustomButton";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,11 @@ import { BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../redux/slices/authSlice";
 import { getUser, logout } from "../../../redux/actions/authAction";
+import { changeTab } from "../../../redux/actions/navigationAction";
 import axios from "axios";
+import PrimaryDropdown from "../dropdowns/primaryDropdown/PrimaryDropdown";
+import UserDropdown from "../dropdowns/userDropdown/UserDropdown";
+
 const NavBar = () => {
   const pages = [
     { name: "Home", path: "/" },
@@ -21,10 +25,13 @@ const NavBar = () => {
   const user = useSelector((state) => state.auth.user);
   const isLogged = useSelector((state) => state.auth.isLogged);
   const cartCount = useSelector((state) => state.cart.count);
+  const currentTab = useSelector((state) => state.navigation.currentTab);
+
   const dispatch = useDispatch();
 
-  const handleActive = (index) => {
-    setActive(index);
+  const currentTabHandler = (name) => {
+    console.log(currentTab);
+    // dispatch(authActions.setCurrentTab(name));
   };
   const goToCart = () => {
     navigate("/cart");
@@ -38,18 +45,20 @@ const NavBar = () => {
   const goToAccount = () => {
     navigate("/account/profile");
   };
+  const goToPage = (path, name) => {
+    navigate(path);
+    dispatch(authActions.setCurrentTab(name));
+  };
 
-  const getUserHandler = async () => {
-    //upload image to the server
-    // try {
-    //   const response = await axios.get("http://localhost:3000/api/auth/user");
-    //   console.log(response.data);
-    // } catch (error) {
-    //   console.error("Error uploading image:", error);
-    // }
+  const logoutHandler = async () => {
     const response = await dispatch(logout());
     console.log(response);
   };
+
+  const dropDownItems = [
+    { name: "Your Account", path: "/account/profile", onClick: goToAccount },
+    { name: "logout", path: "/account/profile", onClick: logoutHandler },
+  ];
 
   return (
     <div className={styles.container}>
@@ -67,8 +76,10 @@ const NavBar = () => {
             <div className={styles.container_content_pages_page}>
               <Link
                 to={page.path}
-                onClick={() => handleActive(index)}
-                style={{ color: active == index ? "#be0002" : "#151313" }}
+                onClick={() => currentTabHandler(page.name)}
+                style={{
+                  color: currentTab == page.name ? "#be0002" : "#151313",
+                }}
               >
                 {page.name}
               </Link>
@@ -78,33 +89,27 @@ const NavBar = () => {
         <div className={styles.container_content_btns}>
           {/* <CustomButton text="Cart" height="64px" onClick={goToCart} /> */}
           <div className={styles.container_content_btns_cart}>
-            <Link
-              to="/cart"
-              style={{
-                color: "#151313",
-                textDecoration: "none",
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <BsCart3 size={34} /> <span>{cartCount}</span>
+            <Link to="/cart">
+              <BsCart3 color="#be0002" size={34} /> <span>{cartCount}</span>
             </Link>
           </div>
           {
             // if user is logged in, show user name
             isLogged ? (
-              <CustomButton
-                text="Account"
-                height="64px"
-                color="secondary"
-                onClick={goToAccount}
-              />
+              // <CustomButton
+              //   text="Account"
+              //   height="64px"
+              //   color="secondary"
+              //   onClick={() => goToPage("/account", "Account")}
+              // />
+
+              <UserDropdown dropDownItems={dropDownItems} />
             ) : (
               <CustomButton
                 text="Login"
                 height="64px"
                 color="secondary"
-                onClick={goToLogin}
+                onClick={() => goToPage("/signin", "Login")}
               />
             )
           }

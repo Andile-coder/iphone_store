@@ -8,6 +8,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 import CustomInput from "../../components/inputs/customInput/CustomInput";
 import { useNavigate } from "react-router-dom";
 import CardPaymentForm from "../../components/forms/cardPaymentForm/CardPaymentForm";
+import PriceSummaryCard from "../../components/cards/priceSummaryCard/PriceSummaryCard";
 const PaymentDetails = () => {
   const navigate = useNavigate();
   const goToOrder = (id) => {
@@ -28,7 +29,7 @@ const PaymentDetails = () => {
               <CardPaymentForm />
             </div>
             <div className={styles.container_content_cont_divider}></div>
-            <PricingContainer onClick={() => goToOrder("123")} />
+            <PriceSummaryCard onClick={() => goToOrder("123")} />
           </div>
         </div>
       </div>
@@ -38,48 +39,3 @@ const PaymentDetails = () => {
 };
 
 export default PaymentDetails;
-
-const PricingContainer = ({ onClick }) => {
-  return (
-    <div className={styles.container_content_cont_pricing}>
-      <div className={styles.container_content_cont_pricing_cont}>
-        <div className={styles.container_content_cont_pricing_cont_summary}>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Delivery</span>
-            <span>R60</span>
-          </div>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Total Items</span>
-            <span>12</span>
-          </div>
-          <div
-            className={styles.container_content_cont_pricing_cont_summary_item}
-          >
-            <span>Total</span>
-            <span>R68964</span>
-          </div>
-        </div>
-        <hr className={styles.hr} />
-        <div
-          className={
-            styles.container_content_cont_pricing_cont_summary_item_subtotal
-          }
-        >
-          <span>Subtotal</span>
-          <span>R68964</span>
-        </div>
-        <CustomButton
-          text="Pay Now"
-          height="56px"
-          color="primary"
-          width="100%"
-          onClick={onClick}
-        />
-      </div>
-    </div>
-  );
-};

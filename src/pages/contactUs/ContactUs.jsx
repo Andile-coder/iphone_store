@@ -7,15 +7,6 @@ import Couch from "../../components/svg/couch/Couch";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../../redux/actions/authAction";
 const ContactUs = () => {
-  const dispatch = useDispatch();
-  const getUserHandler = async () => {
-    const response = await dispatch(getUser());
-    return response;
-  };
-
-  useEffect(() => {
-    getUserHandler();
-  }, []);
   return (
     <div>
       <div className={styles.container}>

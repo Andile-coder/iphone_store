@@ -97,15 +97,12 @@ const Home = () => {
     const response = await dispatch(getUser());
     return response;
   };
-  // get products
+
   useEffect(() => {
-    // when page loads to the following
-    // get products
-    dispatch(getProducts());
-    // alert user that the website is under construction
     alert(
       "Hi, This website is still under construction. Some features may not work as expected. Thank you for your understanding."
     );
+    dispatch(getProducts());
     // update user state if logged in
     getUserHandler();
   }, []);

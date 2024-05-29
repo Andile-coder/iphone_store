@@ -2,13 +2,17 @@
 import { combineReducers } from "redux";
 import authReducer from "./authSlice";
 import productsReducer from "./productsSlice";
-import imageUploaderReducer from "./imageUploaderSlice";
+import cloudinaryReducer from "./cloudinarySlice";
 import cartReducer from "./cartSlice";
+import navigationReducer from "./navigationSlice";
+import alertReducer from "./alertSlice";
 const rootReducer = combineReducers({
   auth: authReducer,
   products: productsReducer,
-  imageUploader: imageUploaderReducer,
+  cloudinary: cloudinaryReducer,
   cart: cartReducer,
+  navigation: navigationReducer,
+  alert: alertReducer,
 });
 
 export default rootReducer;
