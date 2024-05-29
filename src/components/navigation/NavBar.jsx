@@ -4,12 +4,16 @@ import CustomButton from "../buttons/customButton/CustomButton";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/ace_iphone2.png";
 import { CiMenuBurger } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 import logoName from "../../assets/ace_iphone_name2.png";
 import { BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../redux/slices/authSlice";
 import { getUser, logout } from "../../../redux/actions/authAction";
-import { changeTab } from "../../../redux/actions/navigationAction";
+import {
+  changeTab,
+  toggleMobileMenu,
+} from "../../../redux/actions/navigationAction";
 import axios from "axios";
 import PrimaryDropdown from "../dropdowns/primaryDropdown/PrimaryDropdown";
 import UserDropdown from "../dropdowns/userDropdown/UserDropdown";
@@ -26,6 +30,9 @@ const NavBar = () => {
   const isLogged = useSelector((state) => state.auth.isLogged);
   const cartCount = useSelector((state) => state.cart.count);
   const currentTab = useSelector((state) => state.navigation.currentTab);
+  const displayMobileMenu = useSelector(
+    (state) => state.navigation.displayMobileMenu
+  );
 
   const dispatch = useDispatch();
 
@@ -52,7 +59,11 @@ const NavBar = () => {
 
   const logoutHandler = async () => {
     const response = await dispatch(logout());
-    console.log(response);
+  };
+
+  const mobileMenuHandler = async () => {
+    console.log("mobile menu");
+    const response = await dispatch(toggleMobileMenu());
   };
 
   const dropDownItems = [
@@ -120,7 +131,11 @@ const NavBar = () => {
           /> */}
         </div>
         <div className={styles.container_content_burger}>
-          <CiMenuBurger size={40} />
+          {!displayMobileMenu ? (
+            <CiMenuBurger size={40} onClick={mobileMenuHandler} />
+          ) : (
+            <IoMdClose size={40} onClick={mobileMenuHandler} />
+          )}
         </div>
       </nav>
       <hr className={styles.hr} />

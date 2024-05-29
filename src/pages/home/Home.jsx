@@ -104,6 +104,7 @@ const Home = () => {
     );
     dispatch(getProducts());
     // update user state if logged in
+
     getUserHandler();
   }, []);
 

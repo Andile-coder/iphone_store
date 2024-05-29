@@ -5,10 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../redux/actions/authAction";
 import { getImageByTag } from "../redux/actions/cloudinaryActions";
 import AlertCard from "./components/cards/alertCard/AlertCard";
+import PageDropdown from "./components/pageDropdown/PageDropdown";
 
 function App({ children }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
+  const displayMobileMenu = useSelector(
+    (state) => state.navigation.displayMobileMenu
+  );
+
   const userProfileImage = useSelector(
     (state) => state.cloudinary.userProfileImage
   );
@@ -38,6 +43,8 @@ function App({ children }) {
 
   return (
     <>
+      <PageDropdown />
+
       <AlertCard />
       {children}
     </>

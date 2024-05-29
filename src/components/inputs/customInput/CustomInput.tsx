@@ -18,6 +18,7 @@ interface Props {
   label?: string;
   type?: string;
   required?: boolean;
+  defaultValue?: string;
 }
 const CustomInput: React.FC<Props> = (props) => {
   return (
@@ -40,6 +41,7 @@ const CustomInput: React.FC<Props> = (props) => {
           type={props.type}
           placeholder={props.placeholder}
           onChange={props.onChange}
+          defaultValue={props.defaultValue}
         />
       </div>
     </div>

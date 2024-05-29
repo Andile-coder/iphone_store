@@ -10,7 +10,6 @@
     overflow: hidden;
     grid-template-columns: 0.2fr 1fr 0.2fr;
     column-gap: 40px;
-
     &_logo {
       display: flex;
       align-items: center;
@@ -61,6 +60,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 16px;
+      align-items: center;
+
       &_cart {
         display: flex;
         align-items: center;
@@ -79,11 +80,6 @@
           color: $primary-color;
         }
       }
-      &_dropdown {
-        position: relative;
-        background-color: yellow;
-        width: 300px;
-      }
     }
     &_burger {
       display: none;
@@ -100,11 +96,20 @@
 }
 @media (max-width: $breakpoint-small) {
   .container {
-    grid-template-columns: 0.2fr 0.2fr 0.1fr;
+    align-items: center;
+    justify-content: center;
     &_content {
+      display: flex !important;
+      column-gap: 20px !important;
       &_btns {
-        display: flex;
-        align-items: center;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        & > div {
+          display: flex !important;
+          margin-top: -15px !important;
+          align-items: center !important;
+        }
       }
     }
   }

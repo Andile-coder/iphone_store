@@ -9,6 +9,8 @@ import {
   getImageByTag,
 } from "../../../../redux/actions/cloudinaryActions";
 import axios from "axios";
+import { setAlert } from "../../../../redux/actions/alertActions";
+import { updateUser } from "../../../../redux/actions/authAction";
 const ProfileUpdateForm = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
@@ -48,13 +50,19 @@ const ProfileUpdateForm = () => {
     const response = await dispatch(
       uploadImage({ image: updateForm.image, user: user.user_id })
     );
-    if (response.status === 201) {
-      console.log("Image uploaded successfully:", response.data);
+    console.log("response", response);
+    const userResponse = await dispatch(updateUser(updateForm));
+    console.log("formdata", updateForm);
+    console.log("userResponse", userResponse);
+    if (response.status === 201 && userResponse.status === 201) {
       setLoading(false);
     } else {
-      console.log("Error uploading image:", response);
       setLoading(false);
     }
+  };
+
+  const handleFormChange = (e) => {
+    setUpdateForm({ ...updateForm, [e.target.name]: e.target.value });
   };
 
   return (
@@ -75,6 +83,8 @@ const ProfileUpdateForm = () => {
                   width="100%"
                   height="100%"
                   label="First Name"
+                  defaultValue={user.first_name}
+                  onChange={handleFormChange}
                 />
               </div>
               <div className={styles.container_content_form_cont_context_input}>
@@ -86,6 +96,21 @@ const ProfileUpdateForm = () => {
                   width="100%"
                   height="100%"
                   label="Last Name"
+                  defaultValue={user.last_name}
+                  onChange={handleFormChange}
+                />
+              </div>
+              <div className={styles.container_content_form_cont_context_input}>
+                {" "}
+                <CustomInput
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  width="100%"
+                  height="100%"
+                  label="username"
+                  defaultValue={user.username}
+                  onChange={handleFormChange}
                 />
               </div>
 
@@ -97,6 +122,8 @@ const ProfileUpdateForm = () => {
                   width="100%"
                   height="100%"
                   label="Email"
+                  defaultValue={user.email}
+                  onChange={handleFormChange}
                 />
               </div>
 

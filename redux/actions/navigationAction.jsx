@@ -5,3 +5,9 @@ export const changeTab = (tab) => {
     await dispatch(navigationActions.changeTab(tab));
   };
 };
+
+export const toggleMobileMenu = () => {
+  return async (dispatch) => {
+    await dispatch(navigationActions.toggleMobileMenu());
+  };
+};

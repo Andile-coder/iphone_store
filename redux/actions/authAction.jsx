@@ -3,6 +3,7 @@ import axiosInstance from "../../config";
 import { json } from "react-router-dom";
 import { cloudinaryActions } from "../slices/cloudinarySlice";
 import { alertActions } from "../slices/alertSlice";
+// login
 export const login = (user) => {
   return async (dispatch) => {
     const handleLogin = async () => {
@@ -41,6 +42,7 @@ export const login = (user) => {
     }
   };
 };
+// register
 export const register = (user) => {
   return async (dispatch) => {
     const handleRegister = async () => {
@@ -63,7 +65,6 @@ export const register = (user) => {
     }
   };
 };
-
 // get user
 export const getUser = () => {
   return async (dispatch) => {
@@ -91,7 +92,6 @@ export const getUser = () => {
     }
   };
 };
-
 // logout
 export const logout = () => {
   return async (dispatch) => {
@@ -139,6 +139,42 @@ export const resetPassword = (user) => {
         dispatch(
           alertActions.setAlert({
             message: "Password reset successfully",
+            type: "success",
+          })
+        );
+      }
+      return response;
+    } catch (error) {
+      dispatch(
+        alertActions.setAlert({
+          message: error.response.data.message,
+          type: "error",
+        })
+      );
+    }
+  };
+};
+
+// update user
+
+export const updateUser = (user) => {
+  return async (dispatch) => {
+    const handleUpdateUser = async () => {
+      const response = await axiosInstance.patch("/auth/user", user, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+      return response;
+    };
+
+    try {
+      const response = await handleUpdateUser(user);
+      if (response.status === 201) {
+        dispatch(
+          alertActions.setAlert({
+            message: "User updated successfully",
             type: "success",
           })
         );

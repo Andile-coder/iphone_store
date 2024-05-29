@@ -18,11 +18,8 @@ export const uploadImage = ({ image, user }) => {
             },
           }
         );
-        console.log("Image uploaded successfully:", response.data);
-
         return response;
       } catch (error) {
-        console.error("Error uploading image:", error);
         throw error;
       }
     };
@@ -45,7 +42,7 @@ export const uploadImage = ({ image, user }) => {
           type: "error",
         })
       );
-      throw error;
+      return error;
     }
   };
 };

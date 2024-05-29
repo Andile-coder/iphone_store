@@ -13,10 +13,9 @@
       &_nav {
         background-color: #fbdddd;
         height: 95vh;
-
         min-width: 281px;
         &_user {
-          margin-top: 96px;
+          margin-top: 50px;
           display: flex;
           align-items: center;
           flex-flow: column;
@@ -59,7 +58,7 @@
       }
       &_details {
         margin-left: 46px;
-        margin-top: 80px;
+        margin-top: 40px;
         width: 481px;
       }
     }
