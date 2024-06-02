@@ -67,8 +67,8 @@ const NavBar = () => {
   };
 
   const dropDownItems = [
-    { name: "Your Account", path: "/account/profile", onClick: goToAccount },
-    { name: "logout", path: "/account/profile", onClick: logoutHandler },
+    { name: "Account", path: "/account/profile", onClick: goToAccount },
+    { name: "Logout", path: "/account/profile", onClick: logoutHandler },
   ];
 
   return (

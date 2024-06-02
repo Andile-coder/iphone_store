@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./orderHistory.module.scss";
 import NavBar from "../../components/navigation/NavBar";
 import OrderHistoryTable from "../../components/tables/orderHistoryTable/orderHistoryTable";
+import { useDispatch, useSelector } from "react-redux";
 const OrderHistory = () => {
   return (
     <div className={styles.container} style={{ overflow: "hidden" }}>

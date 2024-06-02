@@ -179,33 +179,33 @@ const router = createBrowserRouter(
 
       children: [
         {
-          path: "profile/:id",
+          path: "profile",
           element: <Profile />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "password/:id",
+          path: "password",
           element: <PasswordUpdate />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "card_details/:id",
+          path: "card_details",
           element: <CardDetails />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "address_details/:id",
+          path: "address_details",
           element: <AddressDetails />,
           loader: () => Promise.resolve({}),
         },
         {
-          path: "history",
+          path: "orders",
           element: <Orders />,
           loader: () => Promise.resolve({}),
         },
         {
           path: "*",
-          element: <Navigate to="/account/profile/:id" />,
+          element: <Navigate to="/account/profile" />,
         },
       ],
     },

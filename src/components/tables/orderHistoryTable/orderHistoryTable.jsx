@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./orderHistoryTable.module.scss";
-const orderHistoryTable = () => {
+const orderHistoryTable = ({ data }) => {
+  console.log("data", data);
   return (
     <div className={styles.container}>
       <table className={styles.container_table}>
@@ -24,8 +25,8 @@ const orderHistoryTable = () => {
           </tr>
         </thead>
         <tbody className={styles.container_table_row_body}>
-          {[1, 2, 3, 4, 5].map((elem) => (
-            <TableRow index={elem} />
+          {data?.map((item, index) => (
+            <TableRow index={index} item={item} />
           ))}
         </tbody>
       </table>
@@ -35,24 +36,30 @@ const orderHistoryTable = () => {
 
 export default orderHistoryTable;
 
-const TableRow = ({ index }) => {
+const TableRow = ({ index, item }) => {
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  }
+
   return (
     <tr>
       <td>
         <span>{index}</span>
       </td>
       <td>
-        <span>123456</span>
+        <span>{item.order_number}</span>
       </td>
       <td>
-        <span>21-Dec-2023</span>
+        <span>{formatDate(item.created_on)}</span>
       </td>
 
       <td>
-        <span>Shipped</span>
+        <span>{item.status}</span>
       </td>
       <td>
-        <span className={styles.price_text}>$100.00</span>
+        <span className={styles.price_text}>R{item.total_amount}</span>
       </td>
     </tr>
   );

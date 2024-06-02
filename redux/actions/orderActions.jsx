@@ -63,3 +63,80 @@ export const getOrder = (order) => {
     }
   };
 };
+
+export const getOrders = () => {
+  return async (dispatch) => {
+    const handleGetOrders = async () => {
+      const response = await axiosInstance.get("/orders", {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+
+      return response;
+    };
+
+    try {
+      const response = await handleGetOrders();
+      if (response.status === 200) {
+        const orders = response.data;
+        dispatch(orderActions.getOrders(orders));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getOrderById = (id) => {
+  return async (dispatch) => {
+    const handleGetOrderById = async () => {
+      const response = await axiosInstance.get(`/orders/${id}`, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+
+      return response;
+    };
+
+    try {
+      const response = await handleGetOrderById();
+      if (response.status === 200) {
+        const order = response.data;
+        dispatch(orderActions.getOrderById(order));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const getOrderByUser = (id) => {
+  return async (dispatch) => {
+    const handleGetOrderByUser = async () => {
+      const response = await axiosInstance.get(`/orders/user/${id}`, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+
+      return response;
+    };
+
+    try {
+      const response = await handleGetOrderByUser();
+      if (response.status === 200) {
+        const order = response.data;
+        dispatch(orderActions.getOrderRequest());
+        dispatch(orderActions.getOrderSuccess(order.orders));
+      }
+    } catch (error) {
+      console.log(error);
+      dispatch(orderActions.getOrderFail(error));
+    }
+  };
+};

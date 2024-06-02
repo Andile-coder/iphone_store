@@ -13,6 +13,7 @@ const orderSlice = createSlice({
     order: {},
     loading: false,
     error: "",
+    current_orders: [],
   },
   reducers: {
     createOrderRequest: (state, action) => {
@@ -35,6 +36,13 @@ const orderSlice = createSlice({
       state.taxPrice = 0;
       state.totalPrice = 0;
       state.order = {};
+    },
+    getOrderRequest: (state, action) => {
+      state.loading = true;
+    },
+    getOrderSuccess: (state, action) => {
+      state.loading = false;
+      state.current_orders = action.payload;
     },
   },
 });

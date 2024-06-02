@@ -27,28 +27,28 @@ const Account = () => {
 
   const [pages, setPages] = useState([
     {
-      path: `profile/${id}`,
+      path: `profile`,
       name: "Profile",
       index: 0,
       active: true,
       icon: <AiOutlineUser size={34} />,
     },
     {
-      path: `password/${id}`,
+      path: `password`,
       name: "Password",
       index: 1,
       active: false,
       icon: <MdLockOutline size={34} />,
     },
     {
-      path: `address_details/${id}`,
+      path: `address_details`,
       name: "Address Details",
       index: 2,
       active: false,
       icon: <HiOutlineHome size={34} />,
     },
     {
-      path: `history`,
+      path: `orders`,
       name: "Orders",
       index: 3,
       active: false,
