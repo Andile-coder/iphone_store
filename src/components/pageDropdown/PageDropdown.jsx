@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./pageDropdown.module.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMobileMenu } from "../../../redux/actions/navigationAction";
 const PageDropdown = () => {

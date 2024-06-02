@@ -6,6 +6,8 @@ import cloudinaryReducer from "./cloudinarySlice";
 import cartReducer from "./cartSlice";
 import navigationReducer from "./navigationSlice";
 import alertReducer from "./alertSlice";
+import addressReducer from "./addressSlice";
+import orderReducer from "./orderSlice";
 const rootReducer = combineReducers({
   auth: authReducer,
   products: productsReducer,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   navigation: navigationReducer,
   alert: alertReducer,
+  address: addressReducer,
+  order: orderReducer,
 });
 
 export default rootReducer;

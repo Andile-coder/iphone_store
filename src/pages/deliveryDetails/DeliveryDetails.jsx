@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./deliveryDetails.module.scss";
 import NavBar from "../../components/navigation/NavBar";
 import Footer from "../../components/footer/Footer";
 import CustomButton from "../../components/buttons/customButton/CustomButton";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CustomInput from "../../components/inputs/customInput/CustomInput";
 import PriceSummaryCard from "../../components/cards/priceSummaryCard/PriceSummaryCard";
+import { getAddress } from "../../../redux/actions/addressActions";
 const DeliveryDetails = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cartActions = useSelector((state) => state.cart.cartItems);
   const cartTotalprice = useSelector((state) => state.cart.total);
   const cartTotalItems = useSelector((state) => state.cart.count);
+  const address = useSelector((state) => state.address);
   const goToPayment = (id) => {
     navigate(`/checkout/payment/${id}`);
   };
+  const getAddressHandler = async () => {
+    const response = await dispatch(getAddress());
+    return response;
+  };
+  useEffect(() => {
+    getAddressHandler();
+  }, []);
   return (
     <div>
       <div className={styles.container}>
@@ -41,6 +51,7 @@ const DeliveryDetails = () => {
                       label="Street Address"
                       height="100%"
                       width="100%"
+                      value={address.address}
                     />
                   </div>
                   <div
@@ -53,6 +64,7 @@ const DeliveryDetails = () => {
                       label="Complex/Building Name "
                       height="100%"
                       width="100%"
+                      value={address.building}
                     />
                   </div>
                   <div
@@ -65,6 +77,7 @@ const DeliveryDetails = () => {
                       label="Suburb"
                       height="100%"
                       width="100%"
+                      value={address.suburb}
                     />
                   </div>{" "}
                   <div
@@ -77,6 +90,7 @@ const DeliveryDetails = () => {
                       label="City/Town"
                       height="100%"
                       width="100%"
+                      value={address.city}
                     />
                   </div>{" "}
                   <div
@@ -89,6 +103,7 @@ const DeliveryDetails = () => {
                       label="Province"
                       height="100%"
                       width="100%"
+                      value={address.state}
                     />
                   </div>
                   <div
@@ -101,6 +116,7 @@ const DeliveryDetails = () => {
                       label="Postal Code"
                       height="100%"
                       width="100%"
+                      value={address.postal_code}
                     />
                   </div>
                 </div>

@@ -2,7 +2,9 @@ import React from "react";
 import styles from "./addressDetailsForm.module.scss";
 import CustomInput from "../../inputs/customInput/CustomInput";
 import CustomButton from "../../buttons/customButton/CustomButton";
+import { useSelector } from "react-redux";
 const AddressDetailsForm = ({ visibleBtn }) => {
+  const address = useSelector((state) => state.address);
   return (
     <div className={styles.container_content_cont_form}>
       <form className={styles.container_content_cont_form} action="">
@@ -15,6 +17,7 @@ const AddressDetailsForm = ({ visibleBtn }) => {
               label="Street Address"
               height="100%"
               width="100%"
+              defaultValue={address.address}
             />
           </div>
           <div
@@ -25,6 +28,7 @@ const AddressDetailsForm = ({ visibleBtn }) => {
               label="Complex/Building Name "
               height="100%"
               width="100%"
+              defaultValue={address.building}
             />
           </div>
           <div
@@ -35,6 +39,7 @@ const AddressDetailsForm = ({ visibleBtn }) => {
               label="Suburb"
               height="100%"
               width="100%"
+              defaultValue={address.suburb}
             />
           </div>{" "}
           <div
@@ -45,6 +50,7 @@ const AddressDetailsForm = ({ visibleBtn }) => {
               label="City/Town"
               height="100%"
               width="100%"
+              defaultValue={address.city}
             />
           </div>{" "}
           <div
@@ -55,6 +61,7 @@ const AddressDetailsForm = ({ visibleBtn }) => {
               label="Province"
               height="100%"
               width="100%"
+              defaultValue={address.state}
             />
           </div>
           <div
@@ -66,6 +73,7 @@ const AddressDetailsForm = ({ visibleBtn }) => {
               height="100%"
               width="100%"
               type="number"
+              defaultValue={address.postal_code}
             />
           </div>
           <div

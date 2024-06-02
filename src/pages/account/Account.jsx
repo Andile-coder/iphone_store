@@ -14,6 +14,7 @@ import { getImageByTag } from "../../../redux/actions/cloudinaryActions";
 import { IoMdLogOut } from "react-icons/io";
 import { FaDropbox } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import { getAddress } from "../../../redux/actions/addressActions";
 const Account = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -79,9 +80,15 @@ const Account = () => {
     const response = await dispatch(getImageByTag(id));
     return response;
   };
+  const getAddressHandler = async () => {
+    const response = await dispatch(getAddress());
+
+    return response;
+  };
   useEffect(() => {
     // getUserHandler();
     getUserProfileImageHandler();
+    getAddressHandler();
   }, []);
 
   return (

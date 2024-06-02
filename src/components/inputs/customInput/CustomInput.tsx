@@ -19,6 +19,7 @@ interface Props {
   type?: string;
   required?: boolean;
   defaultValue?: string;
+  value?: string;
 }
 const CustomInput: React.FC<Props> = (props) => {
   return (
@@ -35,6 +36,7 @@ const CustomInput: React.FC<Props> = (props) => {
         </label>
         <input
           required={props.required}
+          value={props.value}
           name={props.name}
           className={styles.container_content_input}
           style={{ width: props.width, height: props.height }}

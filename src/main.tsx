@@ -28,6 +28,7 @@ import { getUser } from "../redux/actions/authAction.jsx";
 import { Dispatch } from "redux";
 import Orders from "./pages/orders/Orders.jsx";
 import App from "./App.jsx";
+import DeliveryDetails from "./pages/deliveryDetails/DeliveryDetails.jsx";
 //create private router
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
@@ -120,7 +121,9 @@ const router = createBrowserRouter(
       path: "/checkout/delivery/:id",
       element: (
         <App>
-          <PaymentDeatils />
+          <PrivateRoute>
+            <DeliveryDetails />
+          </PrivateRoute>
         </App>
       ),
       loader: () => Promise.resolve({}),
