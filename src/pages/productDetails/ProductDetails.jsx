@@ -31,17 +31,32 @@ const ProductDetails = () => {
   ];
 
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.products.product);
+  const { id } = useParams();
+  const { product } = useSelector((state) => state.products);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [productOnCart, setProductOnCart] = useState(false);
-  const { id } = useParams();
   const [text, setText] = useState("Add to Cart");
   const [clicked, setClicked] = useState(false);
+  const [focusImg, setFocusImg] = useState({});
+  const [focusColor, setFocusColor] = useState();
   const list = [0];
 
+  const handleGetProductById = async () => {
+    await dispatch(getProductById(id));
+  };
   useEffect(() => {
-    dispatch(getProductById(id));
+    handleGetProductById();
+    console.log("products", product);
   }, [dispatch, id]);
+
+  const handleFocusImg = (img) => {
+    setFocusImg(img);
+  };
+
+  const handleFocusColor = (color) => {
+    console.log(color);
+    setFocusColor(color);
+  };
 
   const handleClick = () => {
     setClicked(true);
@@ -58,7 +73,32 @@ const ProductDetails = () => {
     } else {
       setProductOnCart(false);
     }
+    handleFocusColor(product.variations?.find((el, i) => i == 1)?.color);
+    handleFocusImg(
+      product.variations
+        ?.find((elem) => elem.color == focusColor)
+        ?.images.find((img) => img.type == "front")
+    );
   }, [cartItems, product]);
+
+  useEffect(() => {
+    // handleFocusColor(product.variations?.find((el, i) => i == 1)?.color);
+    handleFocusImg(
+      product.variations
+        ?.find((elem) => elem.color == focusColor)
+        ?.images.find((img) => img.type == "front")
+    );
+  }, [focusColor]);
+
+  // useEffect(() => {
+  //   if (focusImg == {}) {
+  //     handleFocusImg(
+  //       product.variations
+  //         ?.find((elem) => elem.color == focusColor)
+  //         ?.images.find((img) => img.type == "front")
+  //     );
+  //   }
+  // }, []);
 
   const addToCartHandler = async () => {
     handleClick();
@@ -68,7 +108,6 @@ const ProductDetails = () => {
   const removeFromCartHandler = async () => {
     await dispatch(removeFromCart(product));
   };
-  //when button clicked change text for 5 seconds from add to cart to added to cart
 
   return (
     <div style={{ overflow: "hidden" }}>
@@ -78,12 +117,18 @@ const ProductDetails = () => {
           <div className={styles.container_content_cont}>
             <div className={styles.container_content_cont_img}>
               <div className={styles.container_content_cont_img_container}>
-                <img src={Iphone11_front_white} alt="" />
+                <img src={focusImg?.url} alt={product.name} />
               </div>
               <div className={styles.container_content_cont_img_list}>
-                <SmallImage img={IphoneBoth} />
-                <SmallImage img={IphoneFront} />
-                <SmallImage img={IphoneBack} />
+                {product.variations
+                  ?.find((element) => element.color == focusColor)
+                  ?.images?.map((img) => (
+                    <SmallImage
+                      img={img.url}
+                      onClick={() => handleFocusImg(img)}
+                      active={img == focusImg}
+                    />
+                  ))}
               </div>
             </div>
             <div className={styles.container_content_cont_divider}></div>
@@ -105,6 +150,15 @@ const ProductDetails = () => {
                 addToCartHandler={addToCartHandler}
                 buttonText={text}
                 removeFromCartHandler={removeFromCartHandler}
+                colorClick={() => {}}
+                variations={[
+                  product.variations?.map((el) => (
+                    <BlockColor
+                      color={el.color}
+                      onClick={() => handleFocusColor(el.color)}
+                    />
+                  )),
+                ]}
               />
             </div>
           </div>
@@ -117,8 +171,15 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-const SmallImage = ({ img }) => (
-  <div className={styles.container_content_cont_img_list_item}>
+const SmallImage = ({ img, onClick, active }) => (
+  <div
+    className={
+      active
+        ? styles.container_content_cont_img_list_item_active
+        : styles.container_content_cont_img_list_item
+    }
+    onClick={onClick}
+  >
     <img src={img} alt="" />
   </div>
 );
@@ -130,6 +191,8 @@ const ExtraInfoContainer = ({
   addToCartHandler,
   removeFromCartHandler,
   buttonText,
+  colorClick,
+  variations,
 }) => {
   return (
     <div className={styles.container_content_cont_info_cont}>
@@ -147,9 +210,7 @@ const ExtraInfoContainer = ({
       <div
         className={styles.container_content_cont_info_cont_summary_item_blocks}
       >
-        <BlockColor color="#2F2828" />
-        <BlockColor color="#FFD700" />
-        <BlockColor color="#800080" />
+        {variations.map((elem) => elem)}
       </div>
       <div
         className={
@@ -177,8 +238,8 @@ const ExtraInfoContainer = ({
   );
 };
 
-const BlockColor = ({ color }) => (
-  <div className={styles.blockContainer}>
+const BlockColor = ({ color, onClick }) => (
+  <div className={styles.blockContainer} onClick={onClick}>
     <div
       className={styles.blockContainer_content}
       style={{ background: color }}

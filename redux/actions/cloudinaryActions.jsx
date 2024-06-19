@@ -70,3 +70,52 @@ export const getImageByTag = (tag) => {
     }
   };
 };
+
+export const uploadImage2 = ({ image, data }) => {
+  return async (dispatch) => {
+    const uploadImageToServer = async (base64Image) => {
+      try {
+        const response = await axiosInstance.post(
+          "/cloudinary",
+          {
+            image: base64Image,
+            context: data, // Assuming user contains user_id
+          },
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    };
+
+    try {
+      const response = await uploadImageToServer(image);
+      if (response.status === 201) {
+        dispatch(
+          alertActions.setAlert({
+            message: "Image uploaded successfully",
+            type: "success",
+          })
+        );
+      }
+      return response;
+    } catch (error) {
+      dispatch(
+        alertActions.setAlert({
+          message: error.response.data.message,
+          type: "error",
+        })
+      );
+      return error;
+    }
+  };
+};
+// Phone image upload
+//  tags:
+//  name, model,color,image_angle

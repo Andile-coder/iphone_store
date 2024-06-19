@@ -159,7 +159,11 @@ const Home = () => {
                   <PhoneCard
                     price={item.price}
                     name={item.name}
-                    image={item.image}
+                    image={
+                      item.variations
+                        ?.find((el, i) => i == 0)
+                        .images.find((img) => img.type == "front_back").url
+                    }
                     space={item.space}
                     id={item.product_id}
                     title={item.name}
@@ -190,11 +194,15 @@ const Home = () => {
                   <PhoneCard
                     price={item.price}
                     name={item.name}
-                    image={item.image}
+                    image={
+                      item.variations
+                        ?.find((el, i) => i == 0)
+                        .images.find((img) => img.type == "front_back").url
+                    }
                     space={item.space}
                     id={item.product_id}
                     title={item.name}
-                    link={`/product/${item.id}`}
+                    link={`/product/${item.product_id}`}
                   />
                 ))}
               </div>

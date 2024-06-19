@@ -29,6 +29,7 @@ import { Dispatch } from "redux";
 import Orders from "./pages/orders/Orders.jsx";
 import App from "./App.jsx";
 import DeliveryDetails from "./pages/deliveryDetails/DeliveryDetails.jsx";
+import ImageUpload from "./pages/imageUpload/ImageUpload.jsx";
 //create private router
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
@@ -70,6 +71,16 @@ const router = createBrowserRouter(
       ),
       loader: () => Promise.resolve({}),
     },
+    {
+      path: "/upload",
+      element: (
+        <App>
+          <ImageUpload />
+        </App>
+      ),
+      loader: () => Promise.resolve({}),
+    },
+
     {
       path: "/signin",
       element: (
