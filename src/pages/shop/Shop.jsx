@@ -13,7 +13,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
 import PhoneCard from "../../components/cards/phoneCard/PhoneCard";
 import PrimaryDropdown from "../../components/dropdowns/primaryDropdown/PrimaryDropdown";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../redux/actions/productsAction";
 import { getUser } from "../../../redux/actions/authAction";
 
@@ -21,6 +21,7 @@ const Shop = () => {
   const [show, setShow] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
   const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.products);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -217,12 +218,19 @@ const Shop = () => {
             <PrimaryDropdown dropDownItems={dropDownItems} label="Sort By: " />
           </div>
           <div className={styles.container_content_cards}>
-            {currentItems.map((item) => (
+            {products.map((item) => (
               <PhoneCard
                 price={item.price}
                 name={item.name}
-                image={item.image}
+                image={
+                  item.variations
+                    ?.find((el, i) => i == 0)
+                    .images.find((img) => img.type == "front_back").url
+                }
                 space={item.space}
+                id={item.product_id}
+                title={item.name}
+                link={`/product/${item.product_id}`}
               />
             ))}
           </div>

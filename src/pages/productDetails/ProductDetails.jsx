@@ -90,16 +90,6 @@ const ProductDetails = () => {
     );
   }, [focusColor]);
 
-  // useEffect(() => {
-  //   if (focusImg == {}) {
-  //     handleFocusImg(
-  //       product.variations
-  //         ?.find((elem) => elem.color == focusColor)
-  //         ?.images.find((img) => img.type == "front")
-  //     );
-  //   }
-  // }, []);
-
   const addToCartHandler = async () => {
     handleClick();
     await dispatch(addToCart(product));

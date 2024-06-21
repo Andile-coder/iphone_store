@@ -99,11 +99,7 @@ const NavBar = () => {
         </div>
         <div className={styles.container_content_btns}>
           {/* <CustomButton text="Cart" height="64px" onClick={goToCart} /> */}
-          <div className={styles.container_content_btns_cart}>
-            <Link to="/cart">
-              <BsCart3 color="#be0002" size={34} /> <span>{cartCount}</span>
-            </Link>
-          </div>
+
           {
             // if user is logged in, show user name
             isLogged ? (
@@ -129,6 +125,11 @@ const NavBar = () => {
             height="64px"
             onClick={getUserHandler}
           /> */}
+          <div className={styles.container_content_btns_cart}>
+            <Link to="/cart">
+              <BsCart3 color="#be0002" size={34} /> <span>{cartCount}</span>
+            </Link>
+          </div>
         </div>
         <div className={styles.container_content_burger}>
           {!displayMobileMenu ? (

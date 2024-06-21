@@ -8,6 +8,7 @@ import Images from "../../components/images/Images";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import PriceSummaryCard from "../../components/cards/priceSummaryCard/PriceSummaryCard";
+import EmptyCart from "../../components/svg/emptyCart/EmptyCart";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -69,22 +70,30 @@ const Cart = () => {
           <div className={styles.container_content_cont}>
             <div className={styles.container_content_cont_list}>
               <div className={styles.container_content_cont_list_items}>
-                {cartItems?.map((item) => (
-                  <div
-                    className={styles.container_content_cont_list_items}
-                    style={{ marginBottom: "20px" }}
-                  >
-                    <ListCard
-                      item={item}
-                      name={item.name}
-                      price={item.price}
-                      img={item.image}
-                      space={item.space}
-                      hasIcon={true}
-                      quantity={item.order_quantity}
-                    />
+                {cartItems.length === 0 ? (
+                  <div className={styles.container_content_cont_list_items_ec}>
+                    <EmptyCart />
+                    <span>You have no items in your shopping cart.</span>
+                    <div></div>
                   </div>
-                ))}
+                ) : (
+                  cartItems?.map((item) => (
+                    <div
+                      className={styles.container_content_cont_list_items}
+                      style={{ marginBottom: "20px" }}
+                    >
+                      <ListCard
+                        item={item}
+                        name={item.name}
+                        price={item.price}
+                        img={item.image}
+                        space={item.space}
+                        hasIcon={true}
+                        quantity={item.order_quantity}
+                      />
+                    </div>
+                  ))
+                )}
               </div>
             </div>
             <div className={styles.container_content_cont_divider}></div>

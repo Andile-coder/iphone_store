@@ -29,9 +29,19 @@
       column-gap: 0.5rem;
       &_list {
         // width: 783px;
+
         &_items {
           display: grid;
           grid-template-columns: 1fr;
+        }
+        &_items_ec {
+          width: 60%;
+          margin: auto;
+          span {
+            margin-left: 15%;
+            text-align: center;
+            font-size: 18px;
+          }
         }
       }
       &_pricing_cont {
